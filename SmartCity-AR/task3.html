@@ -7,10 +7,17 @@
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
             <!-- handle hiro marker -->
-            <a-marker preset='hiro'>
-            <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+            <a-marker preset="hiro">
+                <!-- raw.githack.com serves raw files directly from GitHub,
+                with proper Content-Type headers -->
+                <a-entity
+                position="0 -1 0"
+                scale="0.5 0.5 0.5"
+                gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf"
+                >
+                </a-entity>
             </a-marker>
-            <a-text scale="120 120 120" value="Hello, World!"></a-text>
+
             <!-- add a camera to the scene that renders the objects for us -->
             <a-entity camera></a-entity>
         </a-scene>
