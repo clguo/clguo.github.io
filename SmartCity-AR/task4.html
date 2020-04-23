@@ -7,7 +7,7 @@
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
             <a-assets>
-                <audio id="helmet_sound" src="fire.mp3" response-type="arraybuffer" autoplay="true" loop="true"></audio>
+                <audio id="helmet_sound" src="assets/fire.mp3" response-type="arraybuffer" autoplay="true" loop="true"></audio>
                 <a-asset-item id="helmet" src="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/KhronosGroup/glTF-Sample-Models/master/2.0/SciFiHelmet/glTF/SciFiHelmet.gltf"></a-asset-item>
             </a-assets>
 
@@ -24,9 +24,9 @@
                 </a-entity>
 
                 <!-- second entity: reference to the above audio -->
-                 <a-sound src="#helmet_sound"></a-sound>
-<!--                <a-entity sound="src: #helmet_sound; volume: 1; loop: true">-->
-<!--                </a-entity>-->
+<!--                 <a-sound src="#helmet_sound"></a-sound>-->
+                <a-entity sound="src: #helmet_sound; volume: 1; loop: true">
+                </a-entity>
             </a-marker>
 
             <!-- add a camera to the scene that renders the objects for us -->
