@@ -13,7 +13,7 @@ $(function () {
                 i++;
             }, 4000);
         } else {
-			$('.begin').text("很简单，嘻嘻");
+			$('.begin').text("生日快乐，么么哒！");
 			$('.begin').fadeIn();
             return;
         }
