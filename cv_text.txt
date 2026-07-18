@@ -1,0 +1,79 @@
+CHANGLU GUO
+(+45)50169859 ⋄ chagu@dtu.dk
+PhD Fellow, Technical University of Denmark
+2800 Kgs. Lyngby Denmark
+EDUCATION
+Technical University of Denmark, Denmark August 2024 - Present
+Phd: Applied Mathematics and Computer Science (Full Scholarship)
+Project: Fighting Cancer with Generative AI
+Topic: Generative AI
+E¨ otv¨ os Lor´ and University, Hungary September 2019 - June 2020
+Project: Skin Care - A Smart Decision-Making Tool in Dermatology Guest Student
+Budapest University of Technology and Economics, Hungary January 2019 - January 2021
+Master: Computer Engineering (Full Scholarship) Overall GPA: 4.39/5
+Project: Applying Deep Learning for Medical Image Processing
+SKILLS
+Computer Languages Python, Java
+Deep Learning Models CNN, Transformer, Diffusion Model
+Deep Learning Frameworks & Tools Pytorch, Tensorflow, Keras, Pycharm, LaTeX
+Interests Generative AI, Medical Image Analysis, LLM, VLM
+Languages English, Chinese
+EXPERIENCE
+Retinalyze December 2025 – Present
+Research Scientist Part-time
+· Research on deep learning methods for retinal fundus and OCT image analysis.
+Technical University of Denmark August 2024 - Present
+Ph.D. Fellow in Generative AI
+· Research in Generative AI, focusing on medical image generation using diffusion models.
+· Teaching Assistant for introductory and advanced courses on computer vision with deep learning.
+Nanchang Key Laboratory for Blindness and Visual Impairment Prevention Technology
+and Equipment May 2021 - April 2024
+Assistant Researcher
+· Research in deep learning, with a focus on its application in medical image analysis.
+Neural Information Processing Group-E¨ otv¨ os Lor´ and UniversityJune 2019 - August 2020
+Research Assistant
+· Research in deep learning, with a focus on its application in skin image analysis.
+HONOURS AND AWARDS
+1. Otto Mønsted Travel Grant for MICCAI 2025
+2. 2025 Oxford Machine Learning Summer School Scholarship, England
+3. 2024-2027 PhD Fellowship Position at Technical University of Denmark, Denmark
+4. 2019-2021 EFOP Fellowship (Hungary, EU-funded)
+5. 2019-2021 Stipendium Hungaricum Scholarship (Hungary, Government-funded)
+6. 2016-2018 First-class Academic Scholarship, China
+7. 2016-2017 National Endeavor Scholarship, China
+ACADEMIC ACHIEVEMENTS
+Citations on Google Scholar exceed 970, with an H-index of 6.
+Three papers have been cited over 100 times, with the highest exceeding 600 citations.
+• 1. Guo, C., Christensen, A. N., Dahl, A. B., & Hannemose, M. R. MaskDiME: Adaptive Masked
+Diffusion for Precise and Efficient Visual Counterfactual Explanations (Rebuttal for CVPR2026)
+• 2. Guo, C. , Christensen, A. N., Dahl, A. B., & Hannemose, M. R. MedSeg: Parallel Full-
+Resolution Decoding for Medical Image Segmentation (Submitted to MICCAI2026)
+• 3. Guo, C., Christensen, A. N., Dahl, A. B., Yi, Y., & Hannemose, M. R. SA-UNetv2: Rethinking
+Spatial Attention U-Net for Retinal Vessel Segmentation. (ISBI2026)
+• 4. Guo, C. , Christensen, A. N., & Hannemose, M. R. Med-Art: Diffusion Transformer for 2D
+Medical Text-to-Image Generation. (MICCAI Workshop on Deep Generative Models 2025)
+• 5. Guo, C. , Dai, J., Szemenyei, M., Yi, Y. Channel Attention Separable Convolution Network
+for Skin Lesion Segmentation. Accepted by 30th International Conference on Neural Information
+Processing (ICONIP 2023).
+• 6. Yi, Y., Guo, C., Hu, Y., Zhou, W., Wang, W. BCR-UNet: Bi-directional ConvLSTM residual
+U-Net for retinal blood vessel segmentation. Front Public Health (2022).
+• 7. Guo, C., Szemenyei, M., Yi, Y., Wang, W., Chen, B., & Fan, C. (2021, January). Sa-unet:
+Spatial attention u-net for retinal vessel segmentation. In 2020 25th International Conference on
+Pattern Recognition (ICPR 2020) .
+• 8. Guo, C. , Szemenyei, M., Hu, Y., Wang, W., Zhou, W., & Yi, Y. (2021, June). Channel
+attention residual u-net for retinal vessel segmentation. In ICASSP 2021-2021 IEEE International
+Conference on Acoustics, Speech and Signal Processing (ICASSP 2021) .
+• 9. Guo, C. , Szemenyei, M., Yi, Y., Xue, Y., Zhou, W., & Li, Y. (2020, May). Dense residual
+network for retinal vessel segmentation. In ICASSP 2020-2020 IEEE International Conference on
+Acoustics, Speech and Signal Processing (ICASSP 2020) .
+• 10. Guo, C., Szemenyei, M., Yi, Y., Zhou, W., & Bian, H. (2020, November). Residual spatial
+attention network for retinal vessel segmentation. In International Conference on Neural Infor-
+mation Processing (ICONIP 2020) .
+• 11. Guo, C., Szemenyei, M., Pei, Y., Yi, Y., & Zhou, W. (2019, October). SD-Unet: a structured
+dropout u-net for retinal vessel segmentation. In 2019 IEEE 19th International Conference on
+Bioinformatics and Bioengineering (BIBE 2019) .
+ACADEMIC REVIEWER:
+1. Invited as Technical Program Committee for ISBI2026 and Program Committee for ICONIP 2023
+2. Invited as Reviewer for coferences, including CVPR2026, MICCAI2025, ISBI2025, ICPR2024, etc
+3. Invited as Reviewer for journals, including IEEE Transactions on Medical Imaging, Expert Systems
+With Applications, Biomedical Signal Processing and Control, Signal Processing Letters, etc.
