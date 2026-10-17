@@ -578,3 +578,40 @@ strong {
     padding-bottom: 1rem;
   }
 }
+
+/* Text covers for publications without a public figure. */
+.pub-label {
+  color: var(--accent-color);
+  background: rgba(74, 116, 185, 0.06);
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: default;
+}
+
+#about > .stats-note {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.pub-content {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .publication-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .publications-header {
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .toggle-publications {
+    flex-shrink: 0;
+  }
+}

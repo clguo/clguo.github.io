@@ -19,22 +19,54 @@ const publicationsData = {
       }
     },
     {
-      "title": "SA-UNetv2: Rethinking Spatial Attention U-Net for Retinal Vessel Segmentation",
+      "title": "FiRe: Fixed-Noise Refinement for Visual Counterfactual Explanations",
       "authors": [
+        "Y. Zeng",
+        "Changlu Guo",
+        "O. Kristoffersen",
+        "A. N. Christensen",
+        "M. R. Hannemose",
+        "A. B. Dahl"
+      ],
+      "venue": "British Machine Vision Conference (BMVC) 2026",
+      "label": "FiRe",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2608.08664"
+      }
+    },
+    {
+      "title": "CLEAR: Cooperative Latent Flow for Visual Counterfactual Explanations with Accurate Region Preservation",
+      "authors": [
+        "Y. Zeng",
+        "Changlu Guo",
+        "O. Kristoffersen",
+        "A. N. Christensen",
+        "M. R. Hannemose",
+        "A. B. Dahl"
+      ],
+      "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2027",
+      "label": "CLEAR",
+      "selected": 1,
+      "award": "Accepted",
+      "links": {}
+    },
+    {
+      "title": "MedDiME: Efficient Latent Diffusion with Adaptive Masking for Medical Counterfactual Generation",
+      "authors": [
+        "Y. Zeng",
         "Changlu Guo",
         "A. N. Christensen",
-        "A. B. Dahl",
-        "Y. Yi",
-        "M. R. Hannemose"
+        "M. R. Hannemose",
+        "A. B. Dahl"
       ],
-      "venue": "IEEE International Symposium on Biomedical Imaging (ISBI 2026)",
-      "thumbnail": "images/thumbs/saunetv2.png",
+      "venue": "arXiv:2609.15647 (2026)",
+      "label": "MedDiME",
       "selected": 1,
-      "award": "Oral Presentation",
+      "award": "",
       "links": {
-        "pdf": "https://arxiv.org/pdf/2509.11774",
-        "code": "https://github.com/clguo/SA-UNetv2",
-        "project": "https://clguo.github.io/SA-UNetv2/"
+        "pdf": "https://arxiv.org/pdf/2609.15647"
       }
     },
     {
@@ -55,7 +87,26 @@ const publicationsData = {
       }
     },
     {
-      "title": "Sa-unet: Spatial attention u-net for retinal vessel segmentation",
+      "title": "SA-UNetv2: Rethinking Spatial Attention U-Net for Retinal Vessel Segmentation",
+      "authors": [
+        "Changlu Guo",
+        "A. N. Christensen",
+        "A. B. Dahl",
+        "Y. Yi",
+        "M. R. Hannemose"
+      ],
+      "venue": "IEEE International Symposium on Biomedical Imaging (ISBI 2026)",
+      "thumbnail": "images/thumbs/saunetv2.png",
+      "selected": 1,
+      "award": "Oral Presentation",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2509.11774",
+        "code": "https://github.com/clguo/SA-UNetv2",
+        "project": "https://clguo.github.io/SA-UNetv2/"
+      }
+    },
+    {
+      "title": "SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation",
       "authors": [
         "Changlu Guo",
         "M. Szemenyei",
@@ -67,7 +118,7 @@ const publicationsData = {
       "venue": "2020 25th International Conference on Pattern Recognition (ICPR)",
       "thumbnail": "images/thumbs/saunet.png",
       "selected": 1,
-      "award": "700+ Citations",
+      "award": "754 Citations (Oct. 2026)",
       "links": {
         "pdf": "https://arxiv.org/pdf/2004.03696.pdf",
         "code": "https://github.com/clguo/SA-UNet"
@@ -104,7 +155,7 @@ const publicationsData = {
       "venue": "ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing",
       "thumbnail": "images/thumbs/carunet.png",
       "selected": 1,
-      "award": "110+ Citations",
+      "award": "122 Citations (Oct. 2026)",
       "links": {
         "pdf": "https://ieeexplore.ieee.org/document/9414578",
         "code": "https://github.com/clguo/CAR-UNet"
@@ -135,12 +186,12 @@ const publicationsData = {
         "W. Wang"
       ],
       "venue": "Frontiers in Public Health 10, 1056226 (2022)",
-      "thumbnail": "images/thumbs/bcrunet.png",
       "selected": 0,
       "award": "",
       "links": {
         "pdf": "https://www.frontiersin.org/articles/10.3389/fpubh.2022.1056226/full"
-      }
+      },
+      "label": "BCR-UNet"
     },
     {
       "title": "Dense residual network for retinal vessel segmentation",
@@ -184,7 +235,7 @@ const publicationsData = {
       ],
       "venue": "arXiv preprint arXiv:2309.08402",
       "thumbnail": "images/thumbs/3dsaunet.png",
-      "selected": 1,
+      "selected": 0,
       "award": "",
       "links": {
         "pdf": "https://arxiv.org/pdf/2309.08402.pdf",
@@ -221,7 +272,7 @@ const publicationsData = {
       ],
       "venue": "NeuroImage, 121399 (2025)",
       "thumbnail": "images/thumbs/ipgp.png",
-      "selected": 1,
+      "selected": 0,
       "award": "",
       "links": {
         "pdf": "https://www.sciencedirect.com/science/article/pii/S1053811925004021"

@@ -71,12 +71,17 @@ function createPublicationElement(publication) {
   // Create thumbnail
   const thumbnail = document.createElement('div');
   thumbnail.className = 'pub-thumbnail';
-  thumbnail.onclick = () => openModal(publication.thumbnail);
-
-  const thumbnailImg = document.createElement('img');
-  thumbnailImg.src = publication.thumbnail;
-  thumbnailImg.alt = `${publication.title} thumbnail`;
-  thumbnail.appendChild(thumbnailImg);
+  if (publication.thumbnail) {
+    thumbnail.onclick = () => openModal(publication.thumbnail);
+    const thumbnailImg = document.createElement('img');
+    thumbnailImg.src = publication.thumbnail;
+    thumbnailImg.alt = `${publication.title} thumbnail`;
+    thumbnail.appendChild(thumbnailImg);
+  } else {
+    thumbnail.classList.add('pub-label');
+    thumbnail.textContent = publication.label || 'Paper';
+    thumbnail.setAttribute('aria-hidden', 'true');
+  }
 
   // Create content container
   const content = document.createElement('div');
