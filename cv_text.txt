@@ -9,7 +9,7 @@ on diffusion and flow-based modeling. Publications atCVPR 2026, BMVC 2026, andWA
 compact image/video generation, generative model distillation, and predictive world models.
 EDUCATION
 Technical University of Denmark, Denmark Aug. 2024 – Present
-Ph.D. in Applied Mathematics and Computer Science Full Scholarship
+Ph.D. in Applied Mathematics and Computer Science
 Research: Generative AI, Diffusion Models, Efficient Visual Generation
 The University of Hong Kong, Hong Kong Jun. 2026 – Sep. 2026
 Visiting Ph.D. Researcher Supervisor: Prof. Lequan Yu
@@ -73,7 +73,7 @@ HONORS AND AWARDS
 • Research Visit Grants: Otto Mønsteds Fond and William Demant Fonden, Denmark.
 • Oxford Machine Learning Summer School Scholarship (2025).
 • Otto Mønsted Travel Grant for MICCAI 2025.
-• Fully Funded Ph.D. Fellowship, Technical University of Denmark (2024–2027).
+• Ph.D. Fellowship, Technical University of Denmark (2024–2027).
 • EFOP Fellowship and Stipendium Hungaricum Scholarship, Hungary (2019–2021).
 TEACHING EXPERIENCE
 Teaching Assistant for introductory and advanced Computer Vision with Deep Learning courses, Tech-
