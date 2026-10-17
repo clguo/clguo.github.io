@@ -219,13 +219,13 @@
         </section>
     </main>
 
-    <div id="imageModal" class="modal">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Enlarged publication figure" aria-hidden="true">
+        <button class="modal-close" type="button" onclick="closeModal()" aria-label="Close enlarged figure">&times;</button>
         <img class="modal-content" id="modalImage">
     </div>
     <script defer src="vendor/leaflet/leaflet.js"></script>
     <script defer src="visitor-map.js?v=20261017-history"></script>
-    <script src="publications.js?v=20261017-award"></script>
-    <script src="scripts.js?v=20261017-manual"></script>
+    <script src="publications.js?v=20261017-maskdime"></script>
+    <script src="scripts.js?v=20261017-modal"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ const publicationsData = {
         "M. R. Hannemose"
       ],
       "venue": "Computer Vision and Pattern Recognition (CVPR) 2026",
-      "thumbnail": "images/thumbs/maskdime.png",
+      "thumbnail": "images/thumbs/maskdime.png?v=20261017-result",
       "selected": 1,
       "award": "CVPR Compute Efficiency Award (26 out of 4,000+ papers)",
       "links": {

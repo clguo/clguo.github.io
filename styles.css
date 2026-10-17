@@ -493,12 +493,25 @@ strong {
   cursor: pointer;
   transition: color var(--transition-time);
   opacity: 0.8;
+  border: 0;
+  padding: 0;
+  line-height: 1;
+  background: transparent;
 }
 
 .modal-close:hover {
   color: #fff;
   opacity: 1;
   transform: scale(1.1);
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 /* Responsive design fixes */

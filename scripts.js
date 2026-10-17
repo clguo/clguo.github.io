@@ -79,7 +79,7 @@ function createPublicationElement(publication) {
   };
 
   if (publication.thumbnail) {
-    thumbnail.onclick = () => openModal(publication.thumbnail);
+    thumbnail.onclick = () => openModal(publication.thumbnail, publication.title);
     const thumbnailImg = document.createElement('img');
     thumbnailImg.onerror = showTextCover;
     thumbnailImg.src = publication.thumbnail;
@@ -176,22 +176,39 @@ function createPublicationElement(publication) {
 }
 
 // Modal functionality for viewing original images
-function openModal(imageSrc) {
+let modalCloseTimer;
+let modalPreviousFocus;
+
+function openModal(imageSrc, imageTitle = 'Publication figure') {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
+  const closeButton = modal.querySelector('.modal-close');
+  clearTimeout(modalCloseTimer);
+  modalPreviousFocus = document.activeElement;
   modal.style.display = "block";
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
   setTimeout(() => {
     modal.classList.add('show');
   }, 10);
   modalImg.src = imageSrc;
+  modalImg.alt = imageTitle;
+  closeButton.focus();
 }
 
 function closeModal() {
   const modal = document.getElementById('imageModal');
+  if (modal.getAttribute('aria-hidden') === 'true') return;
   modal.classList.remove('show');
-  setTimeout(() => {
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  clearTimeout(modalCloseTimer);
+  modalCloseTimer = setTimeout(() => {
     modal.style.display = "none";
   }, 300);
+  if (modalPreviousFocus && typeof modalPreviousFocus.focus === 'function') {
+    modalPreviousFocus.focus();
+  }
 }
 
 // Close modal when clicking outside the image
@@ -201,3 +218,12 @@ window.onclick = function (event) {
     closeModal();
   }
 }
+
+// Close an enlarged figure with the Escape key.
+document.addEventListener('keydown', (event) => {
+  const modal = document.getElementById('imageModal');
+  if (event.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+    event.preventDefault();
+    closeModal();
+  }
+});
