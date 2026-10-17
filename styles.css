@@ -63,6 +63,15 @@ h1 {
   letter-spacing: -0.02em;
 }
 
+.native-name {
+  margin-left: 0.35rem;
+  font-size: 0.72em;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
 h2 {
   font-size: 1.4rem;
   font-weight: 500;
