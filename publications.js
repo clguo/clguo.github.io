@@ -10,8 +10,6 @@ const publicationsData = {
       ],
       "venue": "Computer Vision and Pattern Recognition (CVPR) 2026",
       "thumbnail": "images/thumbs/maskdime.png?v=20261017-result",
-      "thumbnailFormat": "wide",
-      "thumbnailAspectRatio": "2535 / 1398",
       "selected": 1,
       "award": "CVPR Compute Efficiency Award (26 out of 4,000+ papers)",
       "links": {
@@ -32,8 +30,6 @@ const publicationsData = {
       ],
       "venue": "British Machine Vision Conference (BMVC) 2026",
       "thumbnail": "images/thumbs/fire.png?v=20261017-result",
-      "thumbnailFormat": "wide",
-      "thumbnailAspectRatio": "1034 / 560",
       "label": "FiRe",
       "selected": 1,
       "award": "",
@@ -102,7 +98,7 @@ const publicationsData = {
         "M. R. Hannemose"
       ],
       "venue": "IEEE International Symposium on Biomedical Imaging (ISBI 2026)",
-      "thumbnail": "images/thumbs/saunetv2.png",
+      "thumbnail": "images/thumbs/saunetv2.png?v=20261017-result",
       "selected": 1,
       "award": "Oral Presentation",
       "links": {

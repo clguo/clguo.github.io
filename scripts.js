@@ -71,12 +71,6 @@ function createPublicationElement(publication) {
   // Create thumbnail
   const thumbnail = document.createElement('div');
   thumbnail.className = 'pub-thumbnail';
-  if (publication.thumbnailFormat === 'wide') {
-    thumbnail.classList.add('pub-thumbnail-wide');
-    if (publication.thumbnailAspectRatio) {
-      thumbnail.style.setProperty('--thumbnail-aspect-ratio', publication.thumbnailAspectRatio);
-    }
-  }
   const showTextCover = () => {
     thumbnail.classList.add('pub-label');
     thumbnail.onclick = null;

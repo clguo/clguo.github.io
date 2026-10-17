@@ -202,8 +202,9 @@ section {
 }
 
 .pub-thumbnail {
-  width: 125px;
-  height: 125px;
+  width: 220px;
+  height: 130px;
+  box-sizing: border-box;
   flex-shrink: 0;
   border: 1px solid var(--border-color);
   overflow: hidden;
@@ -217,13 +218,6 @@ section {
   align-items: center;
   justify-content: center;
   padding: 4px;
-}
-
-.pub-thumbnail-wide {
-  width: 220px;
-  height: auto;
-  aspect-ratio: var(--thumbnail-aspect-ratio, 16 / 9);
-  align-self: flex-start;
 }
 
 .pub-thumbnail img {
@@ -636,9 +630,11 @@ body.modal-open {
     gap: 0.75rem;
   }
 
-  .pub-thumbnail-wide {
+  .pub-thumbnail {
     width: 100%;
     max-width: 360px;
+    height: auto;
+    aspect-ratio: 22 / 13;
   }
 
   .publications-header {
