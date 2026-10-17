@@ -1,0 +1,47 @@
+name: Update historical visitor map
+on:
+  schedule:
+    - cron: '23 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: visitor-history
+  cancel-in-progress: false
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate history preservation
+        run: python -m unittest discover -s tools
+      - name: Update public historical locations
+        run: python tools/update_visitors.py
+      - name: Preserve the location archive
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/visitor-locations.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update historical visitor locations'
+            git push origin HEAD:main
+          fi
+      - name: Prepare static site
+        run: |
+          mkdir _site
+          rsync -a --exclude=.git --exclude=.github --exclude=_site --exclude=tools ./ _site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment

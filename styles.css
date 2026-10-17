@@ -616,3 +616,29 @@ strong {
     flex-shrink: 0;
   }
 }
+
+/* The provider still counts visits; its rolling map is replaced by our archive. */
+#visitor-history-map {
+  height: 420px;
+  width: 100%;
+  margin: 1rem 0 0.75rem;
+  background: #237cad;
+  border-radius: 6px;
+  z-index: 0;
+}
+.visitor-counter { min-height: 0; margin-top: 0.75rem; }
+.visitor-counter #mapmyvisitors-widget { min-height: 0; width: auto !important; }
+.visitor-counter .mapmyvisitors-map,
+.visitor-counter .mapmyvisitors-date,
+.visitor-counter #clstminf { display: none !important; }
+.visitor-counter .mapmyvisitors-map-container { background: transparent !important; }
+.visitor-counter .mapmyvisitors-visitors { color: var(--text-secondary) !important; }
+.visitor-locations { font-size: 0.85rem; color: var(--text-secondary); }
+.visitor-locations summary { cursor: pointer; }
+#visitor-location-list { columns: 2; margin-top: 0.75rem; }
+#visitor-location-list li { break-inside: avoid; margin-bottom: 0.3rem; }
+.visitor-map-unavailable { padding: 1rem; box-sizing: border-box; color: white; }
+@media (max-width: 480px) {
+  #visitor-history-map { height: 280px; }
+  #visitor-location-list { columns: 1; }
+}

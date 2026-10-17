@@ -1,0 +1,101 @@
+{
+  "source": "https://mapmyvisitors.com/web/1c6nq",
+  "since": "2026-07-18",
+  "updatedAt": "2026-10-17T17:33:01+00:00",
+  "sourcePeriod": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "locations": [
+    {
+      "name": "Auckland, New Zealand",
+      "lat": -36.8506,
+      "lon": 174.7679
+    },
+    {
+      "name": "Australia",
+      "lat": -33.494,
+      "lon": 143.2104
+    },
+    {
+      "name": "Busan, South Korea",
+      "lat": 35.1003,
+      "lon": 129.0442
+    },
+    {
+      "name": "Copenhagen, Denmark",
+      "lat": 55.6759,
+      "lon": 12.5655
+    },
+    {
+      "name": "Council Bluffs, United States",
+      "lat": 41.2619,
+      "lon": -95.8608
+    },
+    {
+      "name": "Four Oaks, United States",
+      "lat": 35.404,
+      "lon": -78.4153
+    },
+    {
+      "name": "Heiwajima, Japan",
+      "lat": 35.5819,
+      "lon": 139.7663
+    },
+    {
+      "name": "Hong Kong",
+      "lat": 22.25,
+      "lon": 114.1667
+    },
+    {
+      "name": "Kobenhavn S, Denmark",
+      "lat": 55.6759,
+      "lon": 12.5655
+    },
+    {
+      "name": "Kokkedal, Denmark",
+      "lat": 55.9121,
+      "lon": 12.5001
+    },
+    {
+      "name": "Rennes, France",
+      "lat": 48.11,
+      "lon": -1.6744
+    },
+    {
+      "name": "Saarbrücken, Germany",
+      "lat": 49.2718,
+      "lon": 7.0325
+    },
+    {
+      "name": "Sioux Falls, United States",
+      "lat": 43.5547,
+      "lon": -96.7435
+    },
+    {
+      "name": "Struer Municipality, Denmark",
+      "lat": 56.4947,
+      "lon": 8.5787
+    },
+    {
+      "name": "Thompson's Station, United States",
+      "lat": 35.809,
+      "lon": -86.8913
+    },
+    {
+      "name": "United Kingdom",
+      "lat": 51.4964,
+      "lon": -0.1224
+    },
+    {
+      "name": "United States",
+      "lat": 37.751,
+      "lon": -97.822
+    },
+    {
+      "name": "Zurich, Switzerland",
+      "lat": 47.3667,
+      "lon": 8.55
+    }
+  ]
+}
