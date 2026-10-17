@@ -52,7 +52,7 @@ async function loadScholarStats() {
       day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
     });
     const note = document.getElementById('scholar-updated');
-    note.textContent = `Google Scholar · Last updated ${date} · Updates daily`;
+    note.textContent = `Google Scholar · Last updated ${date}`;
     note.title = `Last successful refresh: ${data.updated_at}`;
     renderPublications(showingSelected);
   } catch (error) {

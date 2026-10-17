@@ -4,7 +4,7 @@ Static site published from `main` using GitHub Pages.
 
 ## Daily citation updates
 
-The **Update Google Scholar metrics** GitHub Actions workflow runs daily at 05:17 UTC and can also be started from the Actions tab with **Run workflow**. GitHub may delay scheduled runs.
+The **Update Google Scholar metrics** GitHub Actions workflow is currently disabled: the first hosted run received HTTP 403 from Google Scholar. Fetching from the local machine succeeded. A local daily schedule or a supported cloud data provider must be configured before automatic daily refreshes are active. The workflow definition retains a daily 05:17 UTC schedule for a future compatible deployment; do not enable it without verifying access.
 
 It fetches the public Google Scholar profile once, updates `data/scholar.json`, commits the successful snapshot, and explicitly requests a Pages build. No API key or personal token is needed. The website reads this snapshot and shows the last successful refresh date alongside total citations, h-index, and i10-index. Existing citation badges use matching paper counts.
 
