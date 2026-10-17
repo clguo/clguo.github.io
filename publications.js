@@ -87,7 +87,7 @@ const publicationsData = {
       "selected": 1,
       "award": "Long Oral Presentation",
       "links": {
-        "pdf": "https://arxiv.org/pdf/2411.02641.pdf",
+        "pdf": "https://link.springer.com/chapter/10.1007/978-3-032-05472-2_6",
         "code": "https://github.com/clguo/Med-Art",
         "project": "https://medart-ai.github.io/"
       }
