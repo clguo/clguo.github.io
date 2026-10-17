@@ -71,16 +71,22 @@ function createPublicationElement(publication) {
   // Create thumbnail
   const thumbnail = document.createElement('div');
   thumbnail.className = 'pub-thumbnail';
+  const showTextCover = () => {
+    thumbnail.classList.add('pub-label');
+    thumbnail.onclick = null;
+    thumbnail.textContent = publication.label || publication.title.split(':')[0];
+    thumbnail.setAttribute('aria-hidden', 'true');
+  };
+
   if (publication.thumbnail) {
     thumbnail.onclick = () => openModal(publication.thumbnail);
     const thumbnailImg = document.createElement('img');
+    thumbnailImg.onerror = showTextCover;
     thumbnailImg.src = publication.thumbnail;
     thumbnailImg.alt = `${publication.title} thumbnail`;
     thumbnail.appendChild(thumbnailImg);
   } else {
-    thumbnail.classList.add('pub-label');
-    thumbnail.textContent = publication.label || 'Paper';
-    thumbnail.setAttribute('aria-hidden', 'true');
+    showTextCover();
   }
 
   // Create content container
