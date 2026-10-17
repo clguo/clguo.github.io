@@ -222,7 +222,7 @@ section {
 .pub-thumbnail-wide {
   width: 220px;
   height: auto;
-  aspect-ratio: 2535 / 1398;
+  aspect-ratio: var(--thumbnail-aspect-ratio, 16 / 9);
   align-self: flex-start;
 }
 
