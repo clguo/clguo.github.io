@@ -66,7 +66,7 @@ on Google Scholar.
 ACADEMIC SERVICE
 Top Reviewer:NeurIPS 2026.
 Program Committee: ISBI 2026, 2027 ; ICONIP 2023.
-Conference Reviewer:ISBI 2027, CVPR 2026, NeurIPS 2026, MICCAI 2026.
+Conference Reviewer:ICLR 2027, ISBI 2027, CVPR 2026, NeurIPS 2026, MICCAI 2026.
 Journal Reviewer: IEEE Transactions on Medical Imaging; Expert Systems with Applications;
 Biomedical Signal Processing and Control; IEEE Signal Processing Letters.
 HONORS AND AWARDS

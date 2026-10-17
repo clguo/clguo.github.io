@@ -1,11 +1,13 @@
 // Global variables
 let allPublications = [];
 let showingSelected = true;
+let scholarStats = null;
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function () {
   // Load publications data
   loadPublications();
+  loadScholarStats();
 
   // Initialize animation delays for sections
   const sections = document.querySelectorAll('section');
@@ -19,6 +21,45 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleButton.addEventListener('click', togglePublications);
   }
 });
+
+function citationKey(title) {
+  return title.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+// Serve the last successful daily snapshot; never scrape Scholar in a visitor's browser.
+async function loadScholarStats() {
+  try {
+    const response = await fetch('data/scholar.json', {
+      cache: 'no-store',
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!response.ok) throw new Error('Citation data unavailable');
+    const data = await response.json();
+    const keys = ['citations', 'h_index', 'i10_index'];
+    const updated = new Date(data.updated_at);
+    if (data.profile_id !== 'y6XNTKEAAAAJ' ||
+        !keys.every(key => Number.isSafeInteger(data[key]) && data[key] >= 0) ||
+        Number.isNaN(updated.getTime()) || !data.publications ||
+        typeof data.publications !== 'object' || Array.isArray(data.publications) ||
+        !Object.values(data.publications).every(value => Number.isSafeInteger(value) && value >= 0)) {
+      throw new Error('Invalid citation data');
+    }
+    scholarStats = data;
+    document.getElementById('stat-citations').textContent = data.citations.toLocaleString('en-US');
+    document.getElementById('stat-h-index').textContent = data.h_index;
+    document.getElementById('stat-i10-index').textContent = data.i10_index;
+    const date = updated.toLocaleDateString('en-GB', {
+      day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
+    });
+    const note = document.getElementById('scholar-updated');
+    note.textContent = `Google Scholar · Last updated ${date} · Updates daily`;
+    note.title = `Last successful refresh: ${data.updated_at}`;
+    renderPublications(showingSelected);
+  } catch (error) {
+    // Preserve the dated HTML fallback if the snapshot cannot be loaded.
+    console.warn('Using saved citation figures:', error.message);
+  }
+}
 
 // Load publications from global variable (avoiding CORS issues)
 function loadPublications() {
@@ -133,7 +174,13 @@ function createPublicationElement(publication) {
   if (publication.award && publication.award.length > 0) {
     const award = document.createElement('div');
     award.className = 'pub-award';
-    award.textContent = publication.award;
+    const citations = scholarStats?.publications[citationKey(publication.title)];
+    if (/Citations/i.test(publication.award) && Number.isSafeInteger(citations)) {
+      award.textContent = `${citations.toLocaleString('en-US')} Citations`;
+      award.title = `Google Scholar · Updated ${scholarStats.updated_at.slice(0, 10)}`;
+    } else {
+      award.textContent = publication.award;
+    }
     venueContainer.appendChild(award);
   }
 

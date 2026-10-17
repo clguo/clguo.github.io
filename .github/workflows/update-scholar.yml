@@ -1,0 +1,41 @@
+name: Update Google Scholar metrics
+
+on:
+  schedule:
+    - cron: '17 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: scholar-metrics
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Check parser and failure handling
+        run: python3 -m unittest discover -s tests
+      - name: Fetch public Scholar metrics
+        run: python3 tools/update_scholar.py
+      - name: Save successful refresh
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/scholar.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh Google Scholar metrics'
+            git push origin HEAD:main
+          fi
+      # GITHUB_TOKEN commits do not automatically trigger Pages builds.
+      - name: Publish refreshed data
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
