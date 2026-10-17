@@ -63,6 +63,7 @@ const publicationsData = {
         "A. B. Dahl"
       ],
       "venue": "arXiv:2609.15647 (2026)",
+      "thumbnail": "images/thumbs/meddime.png",
       "label": "MedDiME",
       "selected": 1,
       "award": "",
