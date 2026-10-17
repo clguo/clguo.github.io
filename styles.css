@@ -588,7 +588,8 @@ strong {
   cursor: default;
 }
 
-#about > .stats-note {
+#about > .stats-note,
+#visitors > .stats-note {
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.75rem;
