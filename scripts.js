@@ -71,6 +71,9 @@ function createPublicationElement(publication) {
   // Create thumbnail
   const thumbnail = document.createElement('div');
   thumbnail.className = 'pub-thumbnail';
+  if (publication.thumbnailFormat === 'wide') {
+    thumbnail.classList.add('pub-thumbnail-wide');
+  }
   const showTextCover = () => {
     thumbnail.classList.add('pub-label');
     thumbnail.onclick = null;
