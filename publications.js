@@ -29,6 +29,7 @@ const publicationsData = {
         "A. B. Dahl"
       ],
       "venue": "British Machine Vision Conference (BMVC) 2026",
+      "thumbnail": "images/thumbs/fire.png",
       "label": "FiRe",
       "selected": 1,
       "award": "",
