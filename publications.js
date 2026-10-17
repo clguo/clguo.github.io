@@ -11,7 +11,7 @@ const publicationsData = {
       "venue": "Computer Vision and Pattern Recognition (CVPR) 2026",
       "thumbnail": "images/thumbs/maskdime.png",
       "selected": 1,
-      "award": "",
+      "award": "CVPR Compute Efficiency Award (26 out of 4,000+ papers)",
       "links": {
         "pdf": "https://arxiv.org/pdf/2602.18792.pdf",
         "code": "https://github.com/clguo/MaskDiME",

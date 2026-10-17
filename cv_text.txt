@@ -44,7 +44,7 @@ Google Scholar: 1,155 citations | h-index: 7 | i10-index: 6. Three publications 
 citations, including SA-UNet (757 citations).
 Generative Modeling
 1. Guo, C., Christensen, A. N., Dahl, A. B., & Hannemose, M. R. MaskDiME: Adaptive Masked
-Diffusion for Precise and Efficient Visual Counterfactual Explanations.CVPR 2026.
+Diffusion for Precise and Efficient Visual Counterfactual Explanations.CVPR 2026. CVPR Compute Efficiency Award (26 out of 4,000+ papers).
 2. Zeng, Y.,Guo, C., Kristoffersen, O., et al.FiRe: Fixed-Noise Refinement for Visual Counterfactual
 Explanations. BMVC 2026.
 3. Zeng, Y.,Guo, C., Kristoffersen, O., Christensen, A. N., Hannemose, M. R., & Dahl, A. B.CLEAR:
@@ -70,6 +70,7 @@ Conference Reviewer:ICLR 2027, ISBI 2027, CVPR 2026, NeurIPS 2026, MICCAI 2026.
 Journal Reviewer: IEEE Transactions on Medical Imaging; Expert Systems with Applications;
 Biomedical Signal Processing and Control; IEEE Signal Processing Letters.
 HONORS AND AWARDS
+• CVPR Compute Efficiency Award for MaskDiME (2026), one of 26 papers out of 4,000+.
 • Research Visit Grants: Otto Mønsteds Fond and William Demant Fonden, Denmark.
 • Oxford Machine Learning Summer School Scholarship (2025).
 • Otto Mønsted Travel Grant for MICCAI 2025.
