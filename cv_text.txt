@@ -40,8 +40,8 @@ cient Neural Networks
 Deep Learning PyTorch, Transformers, CNNs, Multimodal Learning, TensorFlow, Keras
 Programming & Tools Python, Git, Linux, LATEX
 SELECTED PUBLICATIONS
-Google Scholar: 1,152 citations | h-index: 7 | i10-index: 6. Three publications have over 100
-citations, including SA-UNet (754 citations).
+Google Scholar: 1,155 citations | h-index: 7 | i10-index: 6. Three publications have over 100
+citations, including SA-UNet (757 citations).
 Generative Modeling
 1. Guo, C., Christensen, A. N., Dahl, A. B., & Hannemose, M. R. MaskDiME: Adaptive Masked
 Diffusion for Precise and Efficient Visual Counterfactual Explanations.CVPR 2026.
@@ -58,7 +58,7 @@ Computer Vision and Efficient Architectures
 6. Guo, C., Christensen, A. N., Dahl, A. B., Yi, Y., & Hannemose, M. R.SA-UNetv2: Rethinking
 Spatial Attention U-Net for Retinal Vessel Segmentation.ISBI 2026 (Oral).
 7. Guo, C., Szemenyei, M., Yi, Y., Wang, W., Chen, B., & Fan, C.SA-UNet: Spatial Attention U-Net
-for Retinal Vessel Segmentation.ICPR 2020. 754 citations.
+for Retinal Vessel Segmentation.ICPR 2020. 757 citations.
 8. Guo, C.et al.Channel Attention Residual U-Net for Retinal Vessel Segmentation.ICASSP 2021.
 122 citations.
 Additional publications: BIBE 2019, ICASSP 2020, ICONIP 2020, ICONIP 2023, and others. Full list
