@@ -1,0 +1,20 @@
+{
+  "pairs": 20000,
+  "teacher_nfe": 128,
+  "seconds": 133.34109249399626,
+  "teacher_checkpoint": "results/unified/flow/checkpoint.pt",
+  "teacher_sha256": "3f759c365f77855ca192ac36705f5c8a3b2f2c9c8c788c12d74dfeece8529c5b",
+  "seed": 1234,
+  "label_counts": [
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000,
+    2000
+  ]
+}

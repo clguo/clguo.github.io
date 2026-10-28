@@ -27,3 +27,12 @@ Map rendering uses Leaflet 1.9.4 (BSD-2-Clause, license in `vendor/leaflet/LICEN
 Basemap: Natural Earth 1:110m countries, public domain, from
 https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admin_0_countries.geojson
 (properties reduced to country names).
+
+## Tutorial series
+
+`tutorials/video-generation/` is the From 0 to Video Generation series landing page.
+The published foundations chapter, comparison, source audit, local media, and
+reproduction bundle are under `foundations/`. Later chapters are marked as planned.
+The original tutorial content and measured results are preserved from the
+27 October 2026 publication bundle; website navigation and canonical URLs are added.
+Homepage and tutorial changes on main trigger the existing Pages workflow.

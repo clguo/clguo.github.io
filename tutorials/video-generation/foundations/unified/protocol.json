@@ -1,0 +1,53 @@
+{
+  "purpose": "Controlled reimplementations informed by the three pinned repositories; not exact upstream reproductions",
+  "base_stages": [
+    "diffusion",
+    "flow"
+  ],
+  "base_updates": 20000,
+  "batch_size": 128,
+  "data": "MNIST official training split; 28x28, [-1,1]; uniform class sampling",
+  "initial_seed": 42,
+  "shared_random_streams": {
+    "data": 100,
+    "noise": 200,
+    "time": 300
+  },
+  "architecture": "Identical conditional DigitUNet with global 7x7 attention",
+  "conditioning": "10 classes; guidance=1; no label dropout; no external classifier guidance",
+  "diffusion": {
+    "timesteps": 1000,
+    "schedule": "cosine, offset 0.008",
+    "target": "epsilon"
+  },
+  "flow": {
+    "path": "independent linear interpolation, noise at t=0",
+    "target": "data - noise"
+  },
+  "followup_updates": 12000,
+  "followup_controls": "Both reflow and continued-flow start from the same frozen base-flow EMA, same optimizer and update budget",
+  "teacher_pairs": 20000,
+  "teacher_nfe": 128,
+  "evaluation_nfe": [
+    1,
+    4,
+    16,
+    64
+  ],
+  "native_ddpm_reference_nfe": 1000,
+  "evaluation_samples": 1000,
+  "evaluation_labels": "100 samples per requested class",
+  "evaluation_seed": 2026,
+  "family_order": [
+    "DDPM",
+    "DDIM",
+    "Flow Matching / RF1",
+    "Rectified Flow / RF2"
+  ],
+  "limitations": "One training seed; shared V100 hardware; reflow pair-generation cost reported separately",
+  "quality_diagnostics": [
+    "requested-class agreement",
+    "independent classifier feature Frechet distance",
+    "within-class feature and pixel variance ratios"
+  ]
+}

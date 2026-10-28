@@ -1,0 +1,6 @@
+torch>=2.5
+numpy
+matplotlib
+Pillow
+markdown-it-py
+scipy

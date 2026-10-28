@@ -1,0 +1,36 @@
+{
+  "repository": "orshkuri/ddpm-mnist-diffusion",
+  "commit": "cd7ee52d0d95ada16d7c17d87f85f6c6c1d83716",
+  "files": [
+    {
+      "path": "README.md",
+      "local_path": "references/ddpm-mnist-diffusion/README.md",
+      "sha256": "b461ced4f4f32e60b23ce7ddb4b5ba718a7e631f9d7bed3f4b8858adfc904830",
+      "url": "https://github.com/orshkuri/ddpm-mnist-diffusion/blob/cd7ee52d0d95ada16d7c17d87f85f6c6c1d83716/README.md"
+    },
+    {
+      "path": "main.py",
+      "local_path": "references/ddpm-mnist-diffusion/main.py",
+      "sha256": "98d53710bf531e7d65c7b3f649232a018954144763fbe9335f391751c4eeed9a",
+      "url": "https://github.com/orshkuri/ddpm-mnist-diffusion/blob/cd7ee52d0d95ada16d7c17d87f85f6c6c1d83716/main.py"
+    },
+    {
+      "path": "model/DDPM.py",
+      "local_path": "references/ddpm-mnist-diffusion/model/DDPM.py",
+      "sha256": "0a47b134dd2da60040d0db74fd783ddf8d274877af829a2c58c1e51f1bf1b074",
+      "url": "https://github.com/orshkuri/ddpm-mnist-diffusion/blob/cd7ee52d0d95ada16d7c17d87f85f6c6c1d83716/model/DDPM.py"
+    },
+    {
+      "path": "model/UNet.py",
+      "local_path": "references/ddpm-mnist-diffusion/model/UNet.py",
+      "sha256": "029d75d05f8025665c47c9937b2d2c7cb6106d39d0d643a9242c3d5f10317860",
+      "url": "https://github.com/orshkuri/ddpm-mnist-diffusion/blob/cd7ee52d0d95ada16d7c17d87f85f6c6c1d83716/model/UNet.py"
+    },
+    {
+      "path": "req.txt",
+      "local_path": "references/ddpm-mnist-diffusion/req.txt",
+      "sha256": "9ab3a40de7e7627f36cb2391b40fe111c42a03a2c1f76bd49afb9da3a643d64a",
+      "url": "https://github.com/orshkuri/ddpm-mnist-diffusion/blob/cd7ee52d0d95ada16d7c17d87f85f6c6c1d83716/req.txt"
+    }
+  ]
+}

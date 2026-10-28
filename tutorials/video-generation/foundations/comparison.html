@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn DDPM to DDIM and flow matching to reflow with PyTorch, audited source code, controlled V100 training and real sampling animations.">
+<title>Four MNIST Configurations, Organized into Two Families</title>
+<style>
+:root { color-scheme: light; --ink:#182339; --muted:#526078; --blue:#305db7; }
+* {box-sizing:border-box} body{margin:0;color:var(--ink);background:#fcfcfe;font:18px/1.8 system-ui,sans-serif}
+main{max-width:900px;margin:auto;padding:64px 28px 100px} h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.15;letter-spacing:-.035em}
+h2{font-size:1.6rem;line-height:1.35;margin-top:3rem;scroll-margin-top:30px} a{color:var(--blue)}
+p{margin:1.2em 0} img,video{max-width:100%;height:auto;display:block;margin:24px auto;border-radius:8px}
+pre{background:#111b2d;color:#e4eaf7;padding:22px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.65}
+code{font-family:ui-monospace,monospace} p code,li code{background:#eaf0fa;padding:.12em .3em;border-radius:4px;font-size:.86em}
+table{display:block;overflow:auto;border-collapse:collapse;width:100%;font-size:15px} th,td{border-bottom:1px solid #dce3ef;padding:12px;text-align:left}
+th{background:#eef2f9} nav{background:#eef2f9;padding:18px 25px;border-radius:10px;font-size:15px} nav ol{columns:2;padding-left:20px}
+.eyebrow{text-transform:uppercase;color:var(--blue);font-size:13px;font-weight:700;letter-spacing:.12em}
+footer{border-top:1px solid #dce3ef;margin-top:50px;padding-top:20px;color:var(--muted);font-size:14px}
+.MathJax{max-width:100%;overflow-x:auto;overflow-y:hidden}
+@media(max-width:600px){main{padding:28px 18px}body{font-size:16px}nav ol{columns:1}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.series-nav{background:transparent;padding:0;margin:0 0 28px;font-size:14px} :focus-visible{outline:3px solid #305db7;outline-offset:4px}
+</style>
+<script>window.MathJax={tex:{displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="canonical" href="https://clguo.github.io/tutorials/video-generation/foundations/comparison.html">
+</head><body><main><nav class="series-nav" aria-label="Series navigation"><a href="../../../">Changlu Guo</a> / <a href="../">From 0 to Video Generation</a> / Foundations</nav><div class="eyebrow">Generative modeling · from scratch</div>
+<h1>Four MNIST Configurations, Organized into Two Families</h1>
+<p>This is the compact companion to the <a href="index.html">full tutorial</a> and <a href="repository_audit.html">pinned repository audit</a>. All main panels use one conditional U-Net architecture, identical starting noise and 64 counted network calls. The 100 displayed images per panel are fixed in advance and belong to the full 1,000-output metric set.</p>
+<p><img src="assets/unified_samples.png" alt="Diffusion together, flow together" /></p>
+<nav aria-label="Contents"><strong>In this tutorial</strong><ol><li><a href="#diffusion-ddpm-ddim">Diffusion: DDPM → DDIM</a></li><li><a href="#flow-independent-fm-rf1-reflow-rf2">Flow: independent FM / RF1 → reflow / RF2</a></li><li><a href="#actual-trajectories-and-diagnostic-curves">Actual trajectories and diagnostic curves</a></li></ol></nav><h2 id="diffusion-ddpm-ddim">Diffusion: DDPM → DDIM</h2>
+<p>Train one cosine-schedule noise predictor for 20,000 updates. Keep its checkpoint fixed. Change posterior sampling with fresh noise to deterministic DDIM. Both samplers share conditioning, clipping and the selected time grid. At 64 calls, DDPM explicitly uses a respaced posterior; the native 1,000-call chain is shown separately.</p>
+<p><img src="assets/unified_diffusion_budgets.png" alt="Diffusion budget comparison" /></p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th style="text-align:right">NFE</th>
+<th style="text-align:right">Requested-class agreement ↑</th>
+<th style="text-align:right">Classifier-feature Fréchet ↓</th>
+<th style="text-align:right">Within-class feature variance / real</th>
+<th style="text-align:right">Seconds / 1,000 images</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDPM (respaced posterior)</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">98.1%</td>
+<td style="text-align:right">22.18</td>
+<td style="text-align:right">0.976</td>
+<td style="text-align:right">3.36</td>
+</tr>
+<tr>
+<td>DDIM (same checkpoint)</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">96.4%</td>
+<td style="text-align:right">23.94</td>
+<td style="text-align:right">1.015</td>
+<td style="text-align:right">3.26</td>
+</tr>
+</tbody>
+</table>
+<p><img src="assets/unified_native_diffusion.png" alt="Native DDPM reference and reduced-call DDIM" /></p>
+<h2 id="flow-independent-fm-rf1-reflow-rf2">Flow: independent FM / RF1 → reflow / RF2</h2>
+<p>Independent linear-path flow matching and first-stage rectified flow share the objective studied here. Reflow creates paired teacher endpoints, then trains a new velocity field. The student receives 12,000 extra updates and also pays for 20,000 teacher pairs at 128 calls each. Ordinary FM continued for the same 12,000 updates from the same initialization is an additional control.</p>
+<p><img src="assets/unified_flow_budgets.png" alt="Flow budget comparison" /></p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th style="text-align:right">NFE</th>
+<th style="text-align:right">Requested-class agreement ↑</th>
+<th style="text-align:right">Classifier-feature Fréchet ↓</th>
+<th style="text-align:right">Within-class feature variance / real</th>
+<th style="text-align:right">Seconds / 1,000 images</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FM / RF1</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">97.6%</td>
+<td style="text-align:right">20.93</td>
+<td style="text-align:right">0.956</td>
+<td style="text-align:right">3.04</td>
+</tr>
+<tr>
+<td>FM + 12k ordinary updates</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">98.1%</td>
+<td style="text-align:right">22.87</td>
+<td style="text-align:right">0.941</td>
+<td style="text-align:right">3.05</td>
+</tr>
+<tr>
+<td>RF2 (one reflow round)</td>
+<td style="text-align:right">64</td>
+<td style="text-align:right">97.0%</td>
+<td style="text-align:right">21.79</td>
+<td style="text-align:right">0.952</td>
+<td style="text-align:right">3.05</td>
+</tr>
+</tbody>
+</table>
+<p><img src="assets/unified_reflow_control.png" alt="Equally long follow-up training control" /></p>
+<h2 id="actual-trajectories-and-diagnostic-curves">Actual trajectories and diagnostic curves</h2>
+<p><video controls loop muted playsinline preload="none" poster="assets/unified_samples.png" aria-label="Actual four-way generation"><source src="assets/unified_generation.mp4" type="video/mp4"><img src="assets/unified_generation.gif" alt="Actual four-way generation" /></video></p>
+<p>Progress means completed network calls, not identical noise level across families. DDPM is stochastic after initialization; DDIM and Euler flows are deterministic given noise and labels.</p>
+<p><img src="assets/unified_metrics.png" alt="Diagnostics for both families" /></p>
+<p>Requested-class agreement uses a separate 98.89%-test-accuracy MNIST classifier. It is not human-rated sample validity. Feature Fréchet distance uses that classifier’s 128D features, not Inception. Within-class variation helps expose blurred prototypes but does not by itself establish realistic diversity. No sample is filtered. Shared-V100 timing, one training seed and finite evaluation size limit the conclusions.</p>
+<p>The full tutorial explains the equations, code, controls, measured training costs and reproduction commands. The <a href="results/unified/evaluation/report.json">machine-readable report</a> records every budget, checkpoint hash, per-class agreement and actual call count.</p>
+<footer>Built from comparison.md. Figures and GIFs are local; mathematical typesetting loads MathJax from a CDN. Companion source: unified/train.py, unified/processes.py, unified/evaluate.py and digit_model.py.</footer></main></body></html>

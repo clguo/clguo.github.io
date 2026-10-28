@@ -1,0 +1,25 @@
+{
+  "source": "Michedev/flow-matching-mnist/models/utils.py",
+  "noise": [
+    0.0,
+    10.0,
+    20.0
+  ],
+  "data": [
+    20.0,
+    0.0,
+    10.0
+  ],
+  "upstream_result": [
+    10.0,
+    20.0,
+    0.0
+  ],
+  "upstream_sum_distance": 40.0,
+  "correct_result": [
+    20,
+    0,
+    10
+  ],
+  "correct_sum_distance": 0
+}

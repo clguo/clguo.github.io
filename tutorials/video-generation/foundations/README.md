@@ -1,0 +1,54 @@
+# DDPM → DDIM and Flow Matching → Reflow
+
+An English tutorial with actual class-conditioned MNIST training on a V100. Read `index.html` for the full article, `comparison.html` for the grouped comparison, and `repository_audit.html` for a pinned source-code audit of the three reference repositories.
+
+The main four configurations are grouped into **diffusion (DDPM, DDIM)** and **flow (FM/RF1, RF2)**. DDPM and DDIM share a trained denoiser. RF2 is a new reflow student; the smol reference repository only implements the first flow. An extra continued-FM checkpoint controls for additional optimizer updates.
+
+The common model is a 1,226,721-parameter conditional U-Net. Base training uses 20,000 updates, batch 128, shared initialization and independent shared data/noise/time RNG streams. Follow-ups start from the same frozen flow EMA and train 12,000 updates. Reflow additionally uses 20,000 fixed teacher pairs generated with 128 Euler calls each. Main figures compare 64 counted network calls per sample. Evaluation keeps all 1,000 samples, 100 per requested class, seed 2026, with fixed visual indices and no filtering.
+
+These are controlled reimplementations, not exact reproductions of the upstream architectures or gallery images. No upstream generator weights are used.
+
+## Run
+
+Install `requirements.txt` into a CUDA-enabled PyTorch environment. Training/evaluation require a scheduled GPU; rendering and export run on CPU. V100 experiments use FP32.
+
+```bash
+python -m unittest unified.test_unified -v
+python -m unified.train --stage diffusion --steps 20000
+python -m unified.train --stage flow --steps 20000
+python -m unified.train --stage pairs --pairs 20000 --teacher-nfe 128
+python -m unified.train --stage reflow --steps 12000
+python -m unified.train --stage continued --steps 12000
+python quality.py --train-classifier  # if results/quality/classifier.pt is absent
+python -m unified.evaluate
+python -m unified.render
+python optimize_assets.py unified_generation
+python -m unified.publish
+python build_article.py
+python build_article.py --source comparison.md --output comparison.html
+python build_article.py --source repository_audit.md --output repository_audit.html
+```
+
+Use multiple GPU allocations if needed. Interrupted training can resume from its 2,000-update checkpoints by adding `--resume`; retain the original `--steps`. Generate teacher pairs only after the base flow finishes. Direct IDX MNIST downloads are cached in `data/`; no torchvision is required. Video optimization needs ffmpeg with libx264 or libopenh264. HTML mathematics uses a MathJax CDN.
+
+## Files
+
+- `unified/protocol.json`: explicit controls, budgets, families and limitations.
+- `unified/train.py`: shared trainer, pair bank, EMA, RNG-aware resumption and metadata.
+- `unified/processes.py`: corruption, velocity targets, counted-step diffusion and Euler samplers.
+- `unified/evaluate.py`: fixed inputs, actual forward counts, independent diagnostics, full unfiltered outputs and trajectories.
+- `unified/render.py`: grouped grids, sampling animation, loss and diagnostic figures.
+- `unified/tutorial.md` and `unified/publish.py`: tutorial template and measured table publication.
+- `digit_model.py`: shared backbone; optional conditioning preserves compatibility with old unconditional checkpoints.
+- `quality.py`: direct data loader and independently trained classifier, never generation guidance or filtering.
+- `results/unified/`: actual weights, optimizer/RNG states, losses, pairs and evaluation evidence.
+- `results/unified/evaluation/report.json`: measured results, training costs, hashes and audit checks.
+- `references/*/snapshot.json`: source URLs pinned to commits and file SHA-256 hashes. The publication archive includes manifests rather than vendoring upstream source.
+
+Requested-class agreement is not human-rated validity. The classifier-feature Fréchet distance is not Inception FID. Within-class variance is a diagnostic, not proof of realistic coverage. Shared-V100 timings and one training seed do not establish universal rankings. Reflow’s teacher-bank cost is reported separately.
+
+The publication archive contains articles, media, source code, metadata and loss histories. Trained weights, the teacher bank, raw endpoint tensors and the MNIST cache remain in the workspace; rerunning the commands regenerates them.
+
+## Earlier experiments
+
+Previous articles are preserved as `previous_blog.md`, `previous_tutorial.html`, `previous_comparison.md` and `previous_comparison.html`. Earlier unconditional results under `results/improved/` and root `results/mnist_*` remain separate and are not mixed into this controlled comparison. Legacy training/rendering scripts remain in the workspace; the focused publication archive contains the current experiment and the small legacy module needed by `quality.py` imports.

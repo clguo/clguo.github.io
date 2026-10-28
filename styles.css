@@ -672,3 +672,6 @@ body.modal-open {
   #visitor-history-map { height: 280px; }
   #visitor-location-list { columns: 1; }
 }
+
+/* Tutorial series */
+.tutorial-card{display:grid;grid-template-columns:200px 1fr;gap:1.5rem;padding:1.2rem;border:1px solid var(--border-color);border-radius:6px;background:#f8fafc;align-items:center}.tutorial-preview img{width:100%;height:auto;display:block}.tutorial-card h3{font-size:1.15rem;line-height:1.4;margin:.3rem 0 .6rem}.tutorial-card p{font-size:.88rem;line-height:1.65;margin:.4rem 0}.tutorial-card .tutorial-kicker{font-size:.7rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.06em}.tutorial-links{display:flex;flex-wrap:wrap;gap:1rem;font-size:.82rem;margin-top:.75rem} @media(max-width:600px){.tutorial-card{grid-template-columns:1fr}.tutorial-preview{max-width:300px}}

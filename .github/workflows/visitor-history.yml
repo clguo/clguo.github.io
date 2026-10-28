@@ -1,5 +1,12 @@
 name: Update historical visitor map
 on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "styles.css"
+      - "sitemap.xml"
+      - "tutorials/**"
   schedule:
     - cron: '23 * * * *'
   workflow_dispatch:

@@ -1,0 +1,126 @@
+{
+  "repository": "Michedev/flow-matching-mnist",
+  "commit": "7b93d690ea9e7fc545598203f2609884f8bd1eaa",
+  "files": [
+    {
+      "path": "Justfile",
+      "local_path": "references/flow-matching-mnist/Justfile",
+      "sha256": "5ccc7878b7061cbaac714ba133265a2a7052e293be7cbd9ceca527a675d8499f",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/Justfile"
+    },
+    {
+      "path": "LICENSE",
+      "local_path": "references/flow-matching-mnist/LICENSE",
+      "sha256": "c8ba3871f6c71b373e1eb5f61d70bc3215315cc2bf34debb7919dab464808724",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/LICENSE"
+    },
+    {
+      "path": "__init__.py",
+      "local_path": "references/flow-matching-mnist/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/__init__.py"
+    },
+    {
+      "path": "config/model/flow_matching.yaml",
+      "local_path": "references/flow-matching-mnist/config/model/flow_matching.yaml",
+      "sha256": "c4c732eaada1ee7b01b8b250cbd2ce04c3d483075632e5a39336b7dde79a9dcd",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/config/model/flow_matching.yaml"
+    },
+    {
+      "path": "config/model/flow_matching_cfg.yaml",
+      "local_path": "references/flow-matching-mnist/config/model/flow_matching_cfg.yaml",
+      "sha256": "903012f11c063c56a229c18151cc73c10bc31bc5e7b8843c30bfdb2565005510",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/config/model/flow_matching_cfg.yaml"
+    },
+    {
+      "path": "config/train.yaml",
+      "local_path": "references/flow-matching-mnist/config/train.yaml",
+      "sha256": "1d0c3b6479faf79bd4baef5def1884f7ed7fab481c79afac2f6427ca71b1294c",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/config/train.yaml"
+    },
+    {
+      "path": "flow-matching-with-mnist-dataset.ipynb",
+      "local_path": "references/flow-matching-mnist/flow-matching-with-mnist-dataset.extracted.py",
+      "sha256": "1dc7c3280995c7583f9e3c7034dd6df724af6e450b0cc814c9378dfa6379cd29",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/flow-matching-with-mnist-dataset.ipynb"
+    },
+    {
+      "path": "generate.py",
+      "local_path": "references/flow-matching-mnist/generate.py",
+      "sha256": "bae5dba40845aeaca0c8d2a63bb6094da327aa22b6864e5dc02f3dd62b1316c6",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/generate.py"
+    },
+    {
+      "path": "models/__init__.py",
+      "local_path": "references/flow-matching-mnist/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/models/__init__.py"
+    },
+    {
+      "path": "models/class_cond_fm.py",
+      "local_path": "references/flow-matching-mnist/models/class_cond_fm.py",
+      "sha256": "b074a758b38ff0cd700b88bbde42c7b65e06c5cce68973c144ed0942005554e7",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/models/class_cond_fm.py"
+    },
+    {
+      "path": "models/fm.py",
+      "local_path": "references/flow-matching-mnist/models/fm.py",
+      "sha256": "353b800a55da097951dd1b95a3f36f8019f5bc441546673c8781edd170bbccaf",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/models/fm.py"
+    },
+    {
+      "path": "models/utils.py",
+      "local_path": "references/flow-matching-mnist/models/utils.py",
+      "sha256": "25ac88df3ffeb0007588512967e72d1f6853b2d0978b8152a7ec1db0ef7b91b5",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/models/utils.py"
+    },
+    {
+      "path": "models/velocity_architectures/__init__.py",
+      "local_path": "references/flow-matching-mnist/models/velocity_architectures/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/models/velocity_architectures/__init__.py"
+    },
+    {
+      "path": "models/velocity_architectures/unet.py",
+      "local_path": "references/flow-matching-mnist/models/velocity_architectures/unet.py",
+      "sha256": "c75f7d38c89b1fbf7160f76b67d9f3c0f550e3bc7c704505a0e1213b6439efad",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/models/velocity_architectures/unet.py"
+    },
+    {
+      "path": "models/velocity_architectures/unet_class_cond.py",
+      "local_path": "references/flow-matching-mnist/models/velocity_architectures/unet_class_cond.py",
+      "sha256": "b8f6e0c7035fd8254fa4e3d338deee82e15848b500ba4e61f0b99cc8502a92c8",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/models/velocity_architectures/unet_class_cond.py"
+    },
+    {
+      "path": "paths.py",
+      "local_path": "references/flow-matching-mnist/paths.py",
+      "sha256": "ce66203b3114913355cfc4ab0072ace53b9819e9a0c4f2e822600f2a2b4ee68d",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/paths.py"
+    },
+    {
+      "path": "readme.md",
+      "local_path": "references/flow-matching-mnist/readme.md",
+      "sha256": "e8a45b276a3a817a043ca1e65caebf5214f231d400622e7aeeb6b07b4bcf22e5",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/readme.md"
+    },
+    {
+      "path": "requirements.txt",
+      "local_path": "references/flow-matching-mnist/requirements.txt",
+      "sha256": "2c4422c5c1db85a62945e01ec1ea772fc495c4bfa75ee4e14bb3564214a9e541",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/requirements.txt"
+    },
+    {
+      "path": "train.py",
+      "local_path": "references/flow-matching-mnist/train.py",
+      "sha256": "2c9acfcc0a6630f8fc446e00146cf562f26acd8d72a2c6af67b5b5b5c01e2878",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/train.py"
+    },
+    {
+      "path": "utils.py",
+      "local_path": "references/flow-matching-mnist/utils.py",
+      "sha256": "c1788c38f865ef52ad1485a799e5e1e8ae1b9fa628f2f2cbb1471955ec042bdf",
+      "url": "https://github.com/Michedev/flow-matching-mnist/blob/7b93d690ea9e7fc545598203f2609884f8bd1eaa/utils.py"
+    }
+  ]
+}

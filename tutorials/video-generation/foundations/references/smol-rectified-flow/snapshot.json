@@ -1,0 +1,66 @@
+{
+  "repository": "minii-ai/smol-rectified-flow",
+  "commit": "54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d",
+  "files": [
+    {
+      "path": "LICENSE",
+      "local_path": "references/smol-rectified-flow/LICENSE",
+      "sha256": "43b00bbeb392b2e5c032d0cf90f98cc52b669368b0e3f8090bf00d0bc08f048a",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "local_path": "references/smol-rectified-flow/README.md",
+      "sha256": "34911a6812db8dab29491df19e99c08b5c403908c93df6af54a4457b6f34b12a",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/README.md"
+    },
+    {
+      "path": "configs/mnist_rectified_flow.json",
+      "local_path": "references/smol-rectified-flow/configs/mnist_rectified_flow.json",
+      "sha256": "d549f9b21e7da1115153a78b373a846565f8b207ba956d697c667a8ac30e015a",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/configs/mnist_rectified_flow.json"
+    },
+    {
+      "path": "rectified_flow/__init__.py",
+      "local_path": "references/smol-rectified-flow/rectified_flow/__init__.py",
+      "sha256": "853aae106f47391e3946a1ca8a98816786551d7ccfa2aa45b787da9deb4017fa",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/rectified_flow/__init__.py"
+    },
+    {
+      "path": "rectified_flow/rectified_flow.py",
+      "local_path": "references/smol-rectified-flow/rectified_flow/rectified_flow.py",
+      "sha256": "34611b1e91bde5e6512a49dbc6a2b3741b135e21319d8678156e3b938d1df15e",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/rectified_flow/rectified_flow.py"
+    },
+    {
+      "path": "rectified_flow/trainer.py",
+      "local_path": "references/smol-rectified-flow/rectified_flow/trainer.py",
+      "sha256": "c7c6c4da001623c34e097a34e17b73aefde8b00b392df2815d905f63aea62771",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/rectified_flow/trainer.py"
+    },
+    {
+      "path": "rectified_flow/utils.py",
+      "local_path": "references/smol-rectified-flow/rectified_flow/utils.py",
+      "sha256": "a304e25c2cd461fbd2837ca792c6b1d84b492ca4199e1f4caa3d40bfa134db65",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/rectified_flow/utils.py"
+    },
+    {
+      "path": "requirements.txt",
+      "local_path": "references/smol-rectified-flow/requirements.txt",
+      "sha256": "e7f2e71a8e5ff904afd7ce80dbb6a3ec556ef4af4f81fd6ced352d29eb40a37f",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/requirements.txt"
+    },
+    {
+      "path": "scripts/inference_mnist.py",
+      "local_path": "references/smol-rectified-flow/scripts/inference_mnist.py",
+      "sha256": "8b7e09ae0e79896f64ffea65cf61727beb5face5a39778674a31448676dec70d",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/scripts/inference_mnist.py"
+    },
+    {
+      "path": "scripts/train_mnist.py",
+      "local_path": "references/smol-rectified-flow/scripts/train_mnist.py",
+      "sha256": "76141b018ed1cf3f47274869e5b44833801750456e37a5e968ad41b1018c732a",
+      "url": "https://github.com/minii-ai/smol-rectified-flow/blob/54418a15aa0c7892b8aec6c2b9dd6a7b97f0b88d/scripts/train_mnist.py"
+    }
+  ]
+}
