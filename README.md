@@ -35,4 +35,4 @@ The published foundations chapter, comparison, source audit, local media, and
 reproduction bundle are under `foundations/`. Later chapters are marked as planned.
 The original tutorial content and measured results are preserved from the
 27 October 2026 publication bundle; website navigation and canonical URLs are added.
-Homepage and tutorial changes on main trigger the existing Pages workflow.
+Homepage and tutorial changes on main use the existing GitHub Pages deployment.
