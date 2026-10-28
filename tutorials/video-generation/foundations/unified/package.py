@@ -5,7 +5,7 @@ from pathlib import Path
 
 def main():
     root=Path.cwd()
-    files=[Path(name) for name in ["README.md","requirements.txt","blog.md","comparison.md","repository_audit.md","index.html","comparison.html","repository_audit.html","digit_model.py","quality.py","train.py","build_article.py","optimize_assets.py","unified_tests.log"]]
+    files=[Path(name) for name in ["README.md","START_HERE.md","start-here.html","student-lab.ipynb","requirements.txt","blog.md","comparison.md","repository_audit.md","index.html","comparison.html","repository_audit.html","digit_model.py","quality.py","train.py","build_article.py","optimize_assets.py"]]
     files+=sorted(Path("unified").glob("*.py"))+[Path("unified/protocol.json"),Path("unified/tutorial.md")]
     files+=sorted(Path("assets").glob("unified_*"))
     files+=[Path("results/unified/evaluation/report.json")]

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Learn generative modeling with PyTorch: a step-by-step student lab, controlled experiments, and real sampling animations.">
+<title>Start here: train your first generative model</title>
+<style>
+:root { color-scheme: light; --ink:#182339; --muted:#526078; --blue:#305db7; }
+* {box-sizing:border-box} body{margin:0;color:var(--ink);background:#fcfcfe;font:18px/1.8 system-ui,sans-serif}
+main{max-width:900px;margin:auto;padding:64px 28px 100px} h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.15;letter-spacing:-.035em}
+h2{font-size:1.6rem;line-height:1.35;margin-top:3rem;scroll-margin-top:30px} a{color:var(--blue)}
+p{margin:1.2em 0} img,video{max-width:100%;height:auto;display:block;margin:24px auto;border-radius:8px}
+pre{background:#111b2d;color:#e4eaf7;padding:22px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.65}
+code{font-family:ui-monospace,monospace} p code,li code{background:#eaf0fa;padding:.12em .3em;border-radius:4px;font-size:.86em}
+table{display:block;overflow:auto;border-collapse:collapse;width:100%;font-size:15px} th,td{border-bottom:1px solid #dce3ef;padding:12px;text-align:left}
+th{background:#eef2f9} nav{background:#eef2f9;padding:18px 25px;border-radius:10px;font-size:15px} nav ol{columns:2;padding-left:20px}
+.series-nav{background:transparent;padding:0;margin:0 0 24px;font-size:14px}.student-links{background:#eef2f9;padding:14px 18px;border-radius:8px;font-size:14px;margin-bottom:28px}.student-links a{display:inline-block;margin-right:18px}:focus-visible{outline:3px solid #305db7;outline-offset:4px}
+.eyebrow{text-transform:uppercase;color:var(--blue);font-size:13px;font-weight:700;letter-spacing:.12em}
+footer{border-top:1px solid #dce3ef;margin-top:50px;padding-top:20px;color:var(--muted);font-size:14px}
+.MathJax{max-width:100%;overflow-x:auto;overflow-y:hidden}
+@media(max-width:600px){main{padding:28px 18px}body{font-size:16px}nav ol{columns:1}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script>window.MathJax={tex:{displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="canonical" href="https://clguo.github.io/tutorials/video-generation/foundations/start-here.html">
+</head><body><main><nav class="series-nav" aria-label="Series navigation"><a href="../../../">Changlu Guo</a> / <a href="../">Video Generation from Scratch</a> / Foundations</nav>
+<div class="student-links"><a href="start-here.html">Start coding, step by step →</a><a href="https://github.com/clguo/clguo.github.io/tree/main/tutorials/video-generation/foundations">View code on GitHub ↗</a><a href="mnist-generative-models-unified.zip" download>Download code ↓</a></div>
+<div class="eyebrow">Generative modeling · from scratch</div>
+<h1>Start here: train your first generative model</h1>
+<p>Follow this lab in order. You will check the code, train a flow model from random initialization, generate a labelled digit grid, and then compare diffusion and reflow. Each step tells you what to run, what you should see, and what to read next.</p>
+<p><a href="https://github.com/clguo/clguo.github.io/tree/main/tutorials/video-generation/foundations">Browse all code on GitHub</a> · <a href="mnist-generative-models-unified.zip">Download code and materials</a> · <a href="https://colab.research.google.com/github/clguo/clguo.github.io/blob/main/tutorials/video-generation/foundations/student-lab.ipynb">Open the student notebook in Colab</a> · <a href="index.html">Read the theory</a></p>
+<p>The notebook mirrors the first five steps below and provides optional cells for the full comparison. Select a GPU runtime before training. Run cells one at a time, read their outputs, and inspect the saved sample grid before moving on.</p>
+<nav aria-label="Contents"><strong>In this tutorial</strong><ol><li><a href="#1-get-the-code-and-find-your-working-directory">Get the code and find your working directory</a></li><li><a href="#2-create-an-environment-and-check-your-gpu">Create an environment and check your GPU</a></li><li><a href="#3-verify-the-mathematical-building-blocks">Verify the mathematical building blocks</a></li><li><a href="#4-run-a-short-end-to-end-experiment">Run a short end-to-end experiment</a></li><li><a href="#5-train-a-full-flow-model-and-watch-it-generate">Train a full flow model and watch it generate</a></li><li><a href="#6-train-diffusion-once-then-compare-two-samplers">Train diffusion once, then compare two samplers</a></li><li><a href="#7-train-reflow-and-its-continued-training-control">Train reflow and its continued-training control</a></li><li><a href="#8-reproduce-the-full-measured-comparison">Reproduce the full measured comparison</a></li><li><a href="#9-keep-a-small-experiment-notebook">Keep a small experiment notebook</a></li><li><a href="#troubleshooting">Troubleshooting</a></li></ol></nav><h2 id="1-get-the-code-and-find-your-working-directory">1. Get the code and find your working directory</h2>
+<p>Choose one route. The ZIP is the smallest download; Git is useful if you want to track your changes.</p>
+<p><strong>ZIP route:</strong> <a href="mnist-generative-models-unified.zip">Download the materials</a>, extract them to a new folder named <code>mnist-tutorial</code>, and open a terminal in that folder. The files <code>requirements.txt</code>, <code>digit_model.py</code>, and the directory <code>unified/</code> should be directly inside it.</p>
+<p><strong>Git route:</strong></p>
+<pre><code class="language-bash">git clone https://github.com/clguo/clguo.github.io.git
+cd clguo.github.io/tutorials/video-generation/foundations
+</code></pre>
+<p>Run every remaining command from this directory, including commands beginning with <code>python -m unified</code>. The relative paths in the training code assume this working directory.</p>
+<p><strong>Checkpoint:</strong> <code>python -c &quot;from pathlib import Path; print(Path('unified/train.py').is_file())&quot;</code> prints <code>True</code>. If it prints <code>False</code>, change into the extracted code folder before installing or running anything.</p>
+<h2 id="2-create-an-environment-and-check-your-gpu">2. Create an environment and check your GPU</h2>
+<p>Use Python 3.10 or later. On macOS or Linux:</p>
+<pre><code class="language-bash">python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+</code></pre>
+<p>On Windows PowerShell, use <code>py -m venv .venv</code> followed by <code>.venv\Scripts\Activate.ps1</code>. A hosted notebook already has an environment; skip virtual-environment creation there.</p>
+<p>Install PyTorch using the command from the <a href="https://pytorch.org/get-started/locally/">official PyTorch installer</a>: select your operating system, Pip, Python, and a CUDA build compatible with your NVIDIA GPU driver. Then install this lab's dependencies:</p>
+<pre><code class="language-bash">python -m pip install -r requirements.txt
+python -c &quot;import torch; print('PyTorch:', torch.__version__); print('CUDA available:', torch.cuda.is_available())&quot;
+</code></pre>
+<p><strong>Checkpoint:</strong> <code>CUDA available: True</code> is required for the supplied training and full evaluation scripts. A CUDA-enabled PyTorch installation and an allocated NVIDIA GPU are both needed. On a cluster, enter a GPU allocation before running training.</p>
+<p><strong>Without a CUDA GPU:</strong> you can read the code and run the tests on CPU. You can also sample an existing checkpoint with <code>--device cpu</code>, more slowly. For this lab's training steps, use a CUDA GPU machine or a GPU notebook runtime. Apple MPS training is not implemented in this trainer.</p>
+<p>The download contains source code and published evidence. It does <strong>not</strong> contain trained weights. Following the training steps creates your own checkpoints.</p>
+<h2 id="3-verify-the-mathematical-building-blocks">3. Verify the mathematical building blocks</h2>
+<pre><code class="language-bash">python -m unittest unified.test_unified -v
+</code></pre>
+<p><strong>Checkpoint:</strong> four tests end in <code>OK</code>. They check the flow time convention, oracle diffusion sampling, a reference assignment counterexample, and the conditional network's shape and gradients. These tests run without downloading MNIST or training a generator.</p>
+<p>Read these files in order, keeping the <a href="index.html">full tutorial</a> beside the code:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>What to understand</th>
+<th>Article section</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/clguo/clguo.github.io/blob/main/tutorials/video-generation/foundations/digit_model.py"><code>digit_model.py</code></a></td>
+<td>Inputs <code>x</code>, <code>t</code>, <code>y</code>; time and class embeddings; the output has the same shape as the image</td>
+<td><a href="index.html#2-what-the-model-sees">What the model sees</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/clguo/clguo.github.io/blob/main/tutorials/video-generation/foundations/unified/processes.py"><code>unified/processes.py</code></a></td>
+<td>How <code>training_pair</code> builds a noisy input and a regression target</td>
+<td><a href="index.html#6-flow-first-step-learn-where-pixels-should-move">Flow matching</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/clguo/clguo.github.io/blob/main/tutorials/video-generation/foundations/unified/train.py"><code>unified/train.py</code></a></td>
+<td>Batch → input and target → prediction → loss → backward → optimizer → EMA</td>
+<td><a href="index.html#3-the-common-training-loop-line-by-line">Training loop</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/clguo/clguo.github.io/blob/main/tutorials/video-generation/foundations/unified/sample.py"><code>unified/sample.py</code></a></td>
+<td>Loading EMA weights, fixed noise and labels, calling a sampler, and saving every sample</td>
+<td><a href="index.html#8-watch-the-actual-generation-grouped-by-family">Watch generation</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Try explaining it:</strong> for flow training, why is the target <code>data - noise</code>, and why is one training update possible without solving an ODE?</p>
+<h2 id="4-run-a-short-end-to-end-experiment">4. Run a short end-to-end experiment</h2>
+<p>First verify the whole pipeline with 200 updates. Keep this practice run in its own output directory:</p>
+<pre><code class="language-bash">python -m unified.train --stage flow --steps 200 --batch-size 32 --root results/smoke
+python -m unified.sample --checkpoint results/smoke/flow/checkpoint.pt --method fm --nfe 16 --out outputs/smoke-flow.png
+</code></pre>
+<p>The trainer downloads MNIST on first use and caches it in <code>data/</code>. It finishes by writing a JSON training summary. This short run ends before the normal 1,000-update learning-rate warmup is complete; its purpose is to check data loading, gradients, checkpoint writing, and sampling.</p>
+<p><strong>Checkpoint:</strong> these files now exist:</p>
+<pre><code class="language-text">results/smoke/flow/checkpoint.pt    model, EMA, optimizer, and random states
+results/smoke/flow/metadata.json    training configuration and update count
+results/smoke/flow/loss.npy         loss history
+outputs/smoke-flow.png             your generated sample grid
+outputs/smoke-flow.json            sample seed, method, and checkpoint hash
+</code></pre>
+<p>Open the PNG. Rows request digits 0–9, with four samples per row. Expect poor or noisy outputs from 200 updates. Getting a valid PNG verifies the pipeline; it does not establish that the model has learned good digits.</p>
+<p><strong>Try changing one thing:</strong> rerun only the sampler with <code>--seed 2027</code> and a different <code>--out</code> path. The checkpoint stays the same; the starting noise changes.</p>
+<h2 id="5-train-a-full-flow-model-and-watch-it-generate">5. Train a full flow model and watch it generate</h2>
+<p>Start a new run with the published base budget. The default batch size is 128. Use a fresh result directory so the short experiment remains available:</p>
+<pre><code class="language-bash">python -m unified.train --stage flow --steps 20000 --root results/student
+python -m unified.sample --checkpoint results/student/flow/checkpoint.pt --method fm --nfe 64 --out outputs/flow-64.png --gif
+</code></pre>
+<p><strong>Checkpoint:</strong> open <code>outputs/flow-64.png</code> and <code>outputs/flow-64.gif</code>. The GIF records actual intermediate states from this sampling run. Metadata is in <code>outputs/flow-64.json</code>. You have trained from random initialization and generated samples without an independent classifier or pretrained generator weights.</p>
+<p>The trainer prints progress every 500 updates and saves every 2,000 updates, plus at normal completion. If interrupted, resume from the latest checkpoint with the same planned step count:</p>
+<pre><code class="language-bash">python -m unified.train --stage flow --steps 20000 --root results/student --resume
+</code></pre>
+<p>If a run stops before its first saved checkpoint, restart it. Later updates after the most recent checkpoint must be repeated. Runtime depends on hardware and GPU sharing; the article's V100 times describe its recorded experiment.</p>
+<p><strong>Experiment:</strong> keep the checkpoint, seed, and number of samples fixed. Generate at several counted network-call budgets:</p>
+<pre><code class="language-bash">python -m unified.sample --checkpoint results/student/flow/checkpoint.pt --method fm --nfe 1 --out outputs/flow-1.png
+python -m unified.sample --checkpoint results/student/flow/checkpoint.pt --method fm --nfe 4 --out outputs/flow-4.png
+python -m unified.sample --checkpoint results/student/flow/checkpoint.pt --method fm --nfe 16 --out outputs/flow-16.png
+</code></pre>
+<p>Compare them with <code>flow-64.png</code>. Inspect variation within each requested digit as well as recognizability. In the published run, one-step base flow produces class prototypes with very little within-class variation.</p>
+<h2 id="6-train-diffusion-once-then-compare-two-samplers">6. Train diffusion once, then compare two samplers</h2>
+<pre><code class="language-bash">python -m unified.train --stage diffusion --steps 20000 --root results/student
+python -m unified.sample --checkpoint results/student/diffusion/checkpoint.pt --method ddpm --nfe 64 --out outputs/ddpm-64.png
+python -m unified.sample --checkpoint results/student/diffusion/checkpoint.pt --method ddim --nfe 64 --out outputs/ddim-64.png
+</code></pre>
+<p><strong>Checkpoint:</strong> both commands use the exact same trained diffusion checkpoint. The fixed seed creates identical initial noise and requested labels. DDPM injects additional noise during sampling; this DDIM configuration is deterministic after initialization.</p>
+<p>Read <a href="index.html#4-diffusion-first-step-train-ddpm-to-predict-noise">DDPM training</a> and <a href="index.html#5-diffusion-next-step-ddim-changes-sampling-not-training">DDIM sampling</a>, then find <code>eta</code>'s equivalent in the <code>sigma</code> branch of <code>unified/processes.py</code>.</p>
+<p><strong>Write down:</strong> which part changed between these two PNGs: the architecture, the training target, the checkpoint, or the sampler?</p>
+<h2 id="7-train-reflow-and-its-continued-training-control">7. Train reflow and its continued-training control</h2>
+<p>Finish the full base flow from step 5 before generating a teacher bank. The following commands depend on that flow checkpoint:</p>
+<pre><code class="language-bash">python -m unified.train --stage pairs --pairs 20000 --teacher-nfe 128 --root results/student
+python -m unified.train --stage reflow --steps 12000 --root results/student
+python -m unified.train --stage continued --steps 12000 --root results/student
+python -m unified.sample --checkpoint results/student/reflow/checkpoint.pt --method rf2 --nfe 1 --out outputs/reflow-1.png
+python -m unified.sample --checkpoint results/student/continued/checkpoint.pt --method continued --nfe 1 --out outputs/continued-1.png
+</code></pre>
+<p><strong>Checkpoint:</strong> the pair stage writes <code>results/student/pairs/pairs.pt</code> and its metadata. Reflow and continued training both start from the same base-flow EMA; the former uses fixed teacher pairs, while the latter continues ordinary real-data flow training.</p>
+<p>Compare <code>reflow-1.png</code>, <code>continued-1.png</code>, and <code>flow-1.png</code>. Read <a href="index.html#7-where-rectified-flow-fits-and-what-reflow-changes">what reflow changes</a>. Record teacher-pair generation time separately from student training time.</p>
+<h2 id="8-reproduce-the-full-measured-comparison">8. Reproduce the full measured comparison</h2>
+<p>Do this after completing diffusion, flow, teacher pairs, reflow, and continued training. Unlike the small sampler above, the full evaluator requires the independent classifier and all five configurations:</p>
+<pre><code class="language-bash">python quality.py --train-classifier
+python -m unified.evaluate --root results/student
+</code></pre>
+<p><strong>Checkpoint:</strong> inspect <code>results/student/evaluation/report.json</code>. The evaluator keeps 1,000 outputs per configuration and budget, counts network calls, and checks checkpoint and random-stream relationships. Read class agreement, feature distance, and within-class variation together. Their limitations are explained in the article.</p>
+<p>The small sampler needs no classifier. Its PNGs are for learning and inspection, while this full evaluator reproduces the numerical protocol. Results can vary with the software stack and hardware.</p>
+<p>For the exact article-rendering pipeline, run the complete training stages with the trainer's <strong>default</strong> root <code>results/unified</code> instead of <code>results/student</code>, then use:</p>
+<pre><code class="language-bash">python -m unified.evaluate
+python -m unified.render
+</code></pre>
+<p>The renderer currently reads <code>results/unified/evaluation</code> and writes <code>assets/unified_*</code>. It does not accept a <code>--root</code> argument. Do not pass a student result path to that renderer.</p>
+<h2 id="9-keep-a-small-experiment-notebook">9. Keep a small experiment notebook</h2>
+<p>For each change, save the command, checkpoint hash, seed, training updates, sampling calls, a complete sample grid, and your interpretation. Change one variable at a time.</p>
+<p>Before moving to DiT, explain the training input, the meaning of the network output, the endpoint distribution, and the sampler update. A useful next exercise is replacing the U-Net backbone while keeping the existing training-pair construction and sampling budget fixed.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>What to check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>No module named unified</code> or <code>digit_model</code></td>
+<td>Run from the folder containing <code>digit_model.py</code> and <code>unified/</code>; use <code>python -m unified.train</code>, not <code>python unified/train.py</code>.</td>
+</tr>
+<tr>
+<td><code>CUDA available: False</code></td>
+<td>Check that the GPU runtime/allocation is active and that your PyTorch build supports CUDA. Revisit the official installer linked above.</td>
+</tr>
+<tr>
+<td><code>CUDA out of memory</code></td>
+<td>For a practice run, lower <code>--batch-size</code> and choose a fresh <code>--root</code>. This changes the protocol, so its result is no longer the published matched-budget experiment.</td>
+</tr>
+<tr>
+<td>Missing checkpoint</td>
+<td>Complete the corresponding training stage. The source ZIP excludes model weights.</td>
+</tr>
+<tr>
+<td>Poor digits after the smoke run</td>
+<td>Expected at 200 updates. Train the separate full run before comparing quality.</td>
+</tr>
+<tr>
+<td>Reflow cannot find a teacher or pair bank</td>
+<td>Finish base flow first, then pairs, then reflow; keep the same <code>--root</code> for all dependent stages.</td>
+</tr>
+<tr>
+<td>Full evaluation cannot find the classifier</td>
+<td>Run <code>python quality.py --train-classifier</code> first.</td>
+</tr>
+<tr>
+<td>The first MNIST download fails</td>
+<td>Check network access to the dataset host; rerun after removing only the incomplete file named in the error from <code>data/</code>.</td>
+</tr>
+</tbody>
+</table>
+<footer>Built from START_HERE.md. Figures and GIFs are local; mathematical typesetting loads MathJax from a CDN. Companion source: unified/train.py, unified/processes.py, unified/evaluate.py and digit_model.py.</footer></main></body></html>

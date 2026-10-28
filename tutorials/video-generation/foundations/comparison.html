@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Learn DDPM to DDIM and flow matching to reflow with PyTorch, audited source code, controlled V100 training and real sampling animations.">
+<meta name="description" content="Learn generative modeling with PyTorch: a step-by-step student lab, controlled experiments, and real sampling animations.">
 <title>Four MNIST Configurations, Organized into Two Families</title>
 <style>
 :root { color-scheme: light; --ink:#182339; --muted:#526078; --blue:#305db7; }
@@ -13,17 +13,19 @@ pre{background:#111b2d;color:#e4eaf7;padding:22px;border-radius:10px;overflow:au
 code{font-family:ui-monospace,monospace} p code,li code{background:#eaf0fa;padding:.12em .3em;border-radius:4px;font-size:.86em}
 table{display:block;overflow:auto;border-collapse:collapse;width:100%;font-size:15px} th,td{border-bottom:1px solid #dce3ef;padding:12px;text-align:left}
 th{background:#eef2f9} nav{background:#eef2f9;padding:18px 25px;border-radius:10px;font-size:15px} nav ol{columns:2;padding-left:20px}
+.series-nav{background:transparent;padding:0;margin:0 0 24px;font-size:14px}.student-links{background:#eef2f9;padding:14px 18px;border-radius:8px;font-size:14px;margin-bottom:28px}.student-links a{display:inline-block;margin-right:18px}:focus-visible{outline:3px solid #305db7;outline-offset:4px}
 .eyebrow{text-transform:uppercase;color:var(--blue);font-size:13px;font-weight:700;letter-spacing:.12em}
 footer{border-top:1px solid #dce3ef;margin-top:50px;padding-top:20px;color:var(--muted);font-size:14px}
 .MathJax{max-width:100%;overflow-x:auto;overflow-y:hidden}
 @media(max-width:600px){main{padding:28px 18px}body{font-size:16px}nav ol{columns:1}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-.series-nav{background:transparent;padding:0;margin:0 0 28px;font-size:14px} :focus-visible{outline:3px solid #305db7;outline-offset:4px}
 </style>
 <script>window.MathJax={tex:{displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <link rel="canonical" href="https://clguo.github.io/tutorials/video-generation/foundations/comparison.html">
-</head><body><main><nav class="series-nav" aria-label="Series navigation"><a href="../../../">Changlu Guo</a> / <a href="../">Video Generation from Scratch</a> / Foundations</nav><div class="eyebrow">Generative modeling · from scratch</div>
+</head><body><main><nav class="series-nav" aria-label="Series navigation"><a href="../../../">Changlu Guo</a> / <a href="../">Video Generation from Scratch</a> / Foundations</nav>
+<div class="student-links"><a href="start-here.html">Start coding, step by step →</a><a href="https://github.com/clguo/clguo.github.io/tree/main/tutorials/video-generation/foundations">View code on GitHub ↗</a><a href="mnist-generative-models-unified.zip" download>Download code ↓</a></div>
+<div class="eyebrow">Generative modeling · from scratch</div>
 <h1>Four MNIST Configurations, Organized into Two Families</h1>
 <p>This is the compact companion to the <a href="index.html">full tutorial</a> and <a href="repository_audit.html">pinned repository audit</a>. All main panels use one conditional U-Net architecture, identical starting noise and 64 counted network calls. The 100 displayed images per panel are fixed in advance and belong to the full 1,000-output metric set.</p>
 <p><img src="assets/unified_samples.png" alt="Diffusion together, flow together" /></p>

@@ -33,14 +33,15 @@ def main():
     def anchor(match):
         title = match.group(1)
         identifier = re.sub(r'[^a-z0-9]+', '-', re.sub('<[^>]*>', '', title).lower()).strip('-')
-        headings.append(f'<li><a href="#{identifier}">{title}</a></li>')
+        contents_title = re.sub(r'^\d+\.\s+', '', title)
+        headings.append(f'<li><a href="#{identifier}">{contents_title}</a></li>')
         return f'<h2 id="{identifier}">{title}</h2>'
 
     body = re.sub(r'<h2>(.*?)</h2>', anchor, body)
     page = '''<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Learn DDPM to DDIM and flow matching to reflow with PyTorch, audited source code, controlled V100 training and real sampling animations.">
+<meta name="description" content="Learn generative modeling with PyTorch: a step-by-step student lab, controlled experiments, and real sampling animations.">
 <title>Flow Matching and Rectified Flow from Scratch</title>
 <style>
 :root { color-scheme: light; --ink:#182339; --muted:#526078; --blue:#305db7; }
@@ -52,6 +53,7 @@ pre{background:#111b2d;color:#e4eaf7;padding:22px;border-radius:10px;overflow:au
 code{font-family:ui-monospace,monospace} p code,li code{background:#eaf0fa;padding:.12em .3em;border-radius:4px;font-size:.86em}
 table{display:block;overflow:auto;border-collapse:collapse;width:100%;font-size:15px} th,td{border-bottom:1px solid #dce3ef;padding:12px;text-align:left}
 th{background:#eef2f9} nav{background:#eef2f9;padding:18px 25px;border-radius:10px;font-size:15px} nav ol{columns:2;padding-left:20px}
+.series-nav{background:transparent;padding:0;margin:0 0 24px;font-size:14px}.student-links{background:#eef2f9;padding:14px 18px;border-radius:8px;font-size:14px;margin-bottom:28px}.student-links a{display:inline-block;margin-right:18px}:focus-visible{outline:3px solid #305db7;outline-offset:4px}
 .eyebrow{text-transform:uppercase;color:var(--blue);font-size:13px;font-weight:700;letter-spacing:.12em}
 footer{border-top:1px solid #dce3ef;margin-top:50px;padding-top:20px;color:var(--muted);font-size:14px}
 .MathJax{max-width:100%;overflow-x:auto;overflow-y:hidden}
@@ -60,7 +62,9 @@ footer{border-top:1px solid #dce3ef;margin-top:50px;padding-top:20px;color:var(-
 </style>
 <script>window.MathJax={tex:{displayMath:[['\\\\[','\\\\]']]},svg:{fontCache:'global'}};</script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-</head><body><main><div class="eyebrow">Generative modeling · from scratch</div>
+</head><body><main><nav class="series-nav" aria-label="Series navigation"><a href="../../../">Changlu Guo</a> / <a href="../">Video Generation from Scratch</a> / Foundations</nav>
+<div class="student-links"><a href="start-here.html">Start coding, step by step →</a><a href="https://github.com/clguo/clguo.github.io/tree/main/tutorials/video-generation/foundations">View code on GitHub ↗</a><a href="mnist-generative-models-unified.zip" download>Download code ↓</a></div>
+<div class="eyebrow">Generative modeling · from scratch</div>
 '''
     # Place the navigable contents after the opening introduction.
     first_heading = body.find('<h2')
@@ -68,6 +72,8 @@ footer{border-top:1px solid #dce3ef;margin-top:50px;padding-top:20px;color:var(-
     page += body + '<footer>Built from blog.md. Figures and GIFs are local; mathematical typesetting loads MathJax from a CDN. Companion source: unified/train.py, unified/processes.py, unified/evaluate.py and digit_model.py.</footer></main></body></html>'
     page = page.replace('<title>Flow Matching and Rectified Flow from Scratch</title>', '<title>' + html.escape(title) + '</title>')
     page = page.replace('Built from blog.md.', 'Built from ' + html.escape(args.source.name) + '.')
+    canonical = 'https://clguo.github.io/tutorials/video-generation/foundations/' + ('' if args.output.name == 'index.html' else args.output.name)
+    page = page.replace('</head>', '<link rel="canonical" href="' + canonical + '">\n</head>')
     args.output.write_text(page)
     print(f'Wrote {args.output}; publish with the assets/ directory.')
 
