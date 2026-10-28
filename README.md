@@ -30,7 +30,7 @@ https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_110m_admi
 
 ## Tutorial series
 
-`tutorials/video-generation/` is the From 0 to Video Generation series landing page.
+`tutorials/video-generation/` is the Video Generation from Scratch series landing page.
 The published foundations chapter, comparison, source audit, local media, and
 reproduction bundle are under `foundations/`. Later chapters are marked as planned.
 The original tutorial content and measured results are preserved from the
