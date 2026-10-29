@@ -1,7 +1,7 @@
 {
   "source": "https://mapmyvisitors.com/web/1c6nq",
   "since": "2026-07-18",
-  "updatedAt": "2026-10-29T08:38:49+00:00",
+  "updatedAt": "2026-10-29T16:15:08+00:00",
   "sourcePeriod": {
     "start": "2026-01-01",
     "end": "2026-12-31"
@@ -56,6 +56,11 @@
       "name": "Kokkedal, Denmark",
       "lat": 55.9121,
       "lon": 12.5001
+    },
+    {
+      "name": "Madison, United States",
+      "lat": 43.1205,
+      "lon": -89.3523
     },
     {
       "name": "Rennes, France",
