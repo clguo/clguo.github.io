@@ -52,7 +52,6 @@ const publicationsData = {
       "label": "CLEAR",
       "selected": 1,
       "award": "Accepted",
-      "description": "An efficient latent Flow Matching framework that adaptively resolves conflicts between classifier guidance and generative flow while preserving factual content outside dynamically identified editable regions.",
       "links": {
         "pdf": "https://arxiv.org/pdf/2610.23577",
         "code": "https://github.com/Yan-Zen9/CLEAR",

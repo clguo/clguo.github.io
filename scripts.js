@@ -139,14 +139,6 @@ function createPublicationElement(publication) {
 
   content.appendChild(venueContainer);
 
-  // Add an optional one-sentence introduction.
-  if (publication.description) {
-    const description = document.createElement('div');
-    description.className = 'pub-description';
-    description.textContent = publication.description;
-    content.appendChild(description);
-  }
-
   // Add links if they exist
   if (publication.links) {
     const links = document.createElement('div');
