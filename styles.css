@@ -268,6 +268,14 @@ section {
   color: var(--text-secondary);
 }
 
+.pub-description {
+  max-width: 46rem;
+  margin: -0.1rem 0 0.55rem;
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
 .pub-award {
   font-size: 0.85rem;
   font-weight: 500;

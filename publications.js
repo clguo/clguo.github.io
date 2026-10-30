@@ -48,10 +48,16 @@ const publicationsData = {
         "A. B. Dahl"
       ],
       "venue": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) 2027",
+      "thumbnail": "images/thumbs/clear.png?v=20261030-result",
       "label": "CLEAR",
       "selected": 1,
       "award": "Accepted",
-      "links": {}
+      "description": "An efficient latent Flow Matching framework that adaptively resolves conflicts between classifier guidance and generative flow while preserving factual content outside dynamically identified editable regions.",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2610.23577",
+        "code": "https://github.com/Yan-Zen9/CLEAR",
+        "project": "https://yan-zen9.github.io/CLEAR/"
+      }
     },
     {
       "title": "MedDiME: Efficient Latent Diffusion with Adaptive Masking for Medical Counterfactual Generation",
