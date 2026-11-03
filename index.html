@@ -21,31 +21,55 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://clguo.github.io/#person",
-      "name": "Changlu Guo",
-      "alternateName": ["郭常禄", "Guo Changlu"],
-      "url": "https://clguo.github.io/",
-      "image": "https://clguo.github.io/images/profile.png",
-      "jobTitle": "PhD Researcher",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "Technical University of Denmark",
-        "alternateName": "DTU",
-        "url": "https://www.dtu.dk/"
-      },
-      "sameAs": [
-        "https://scholar.google.com/citations?user=y6XNTKEAAAAJ&hl=en",
-        "https://orbit.dtu.dk/en/persons/changlu-guo/",
-        "https://github.com/clguo",
-        "https://www.linkedin.com/in/changluguo/"
-      ],
-      "knowsAbout": [
-        "Generative AI",
-        "Diffusion Models",
-        "Flow-Based Models",
-        "Computer Vision",
-        "Medical Image Analysis"
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://clguo.github.io/#profile-page",
+          "url": "https://clguo.github.io/",
+          "name": "Changlu Guo (郭常禄) | Academic Homepage",
+          "dateModified": "2026-11-03",
+          "inLanguage": "en",
+          "mainEntity": { "@id": "https://clguo.github.io/#person" },
+          "isPartOf": { "@id": "https://clguo.github.io/#website" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://clguo.github.io/#person",
+          "name": "Changlu Guo",
+          "givenName": "Changlu",
+          "familyName": "Guo",
+          "alternateName": ["郭常禄", "Guo Changlu"],
+          "url": "https://clguo.github.io/",
+          "image": "https://clguo.github.io/images/profile.png",
+          "jobTitle": "PhD Researcher",
+          "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Technical University of Denmark",
+            "alternateName": "DTU",
+            "url": "https://www.dtu.dk/"
+          },
+          "sameAs": [
+            "https://scholar.google.com/citations?user=y6XNTKEAAAAJ&hl=en",
+            "https://orbit.dtu.dk/en/persons/changlu-guo/",
+            "https://github.com/clguo",
+            "https://www.linkedin.com/in/changluguo/"
+          ],
+          "knowsAbout": [
+            "Generative AI",
+            "Diffusion Models",
+            "Flow-Based Models",
+            "Computer Vision",
+            "Medical Image Analysis"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://clguo.github.io/#website",
+          "url": "https://clguo.github.io/",
+          "name": "Changlu Guo (郭常禄)",
+          "alternateName": ["Changlu Guo Academic Homepage", "郭常禄个人主页"],
+          "inLanguage": "en"
+        }
       ]
     }
     </script>
