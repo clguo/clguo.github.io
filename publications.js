@@ -125,7 +125,7 @@ const publicationsData = {
       "venue": "2020 25th International Conference on Pattern Recognition (ICPR)",
       "thumbnail": "images/thumbs/saunet.png",
       "selected": 1,
-      "award": "757 Citations (Oct. 2026)",
+      "award": "767 Citations (Nov. 2026)",
       "links": {
         "pdf": "https://arxiv.org/pdf/2004.03696.pdf",
         "code": "https://github.com/clguo/SA-UNet"
@@ -143,7 +143,7 @@ const publicationsData = {
       "venue": "2019 IEEE 19th International Conference on Bioinformatics and Bioengineering (BIBE)",
       "thumbnail": "images/thumbs/sdunet.png",
       "selected": 0,
-      "award": "140 Citations (Oct. 2026)",
+      "award": "140 Citations (Nov. 2026)",
       "links": {
         "pdf": "https://ieeexplore.ieee.org/document/8942005",
         "code": "https://github.com/clguo/SD_Unet_Keras"
@@ -162,7 +162,7 @@ const publicationsData = {
       "venue": "ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing",
       "thumbnail": "images/thumbs/carunet.png",
       "selected": 1,
-      "award": "122 Citations (Oct. 2026)",
+      "award": "123 Citations (Nov. 2026)",
       "links": {
         "pdf": "https://ieeexplore.ieee.org/document/9414578",
         "code": "https://github.com/clguo/CAR-UNet"
