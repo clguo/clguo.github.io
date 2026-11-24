@@ -1,7 +1,7 @@
 {
   "source": "https://mapmyvisitors.com/web/1c6nq",
   "since": "2026-07-18",
-  "updatedAt": "2026-11-24T12:40:53+00:00",
+  "updatedAt": "2026-11-24T23:05:55+00:00",
   "sourcePeriod": {
     "start": "2026-01-01",
     "end": "2026-12-31"
@@ -66,6 +66,11 @@
       "name": "Madison, United States",
       "lat": 43.1205,
       "lon": -89.3523
+    },
+    {
+      "name": "Oslo, Norway",
+      "lat": 59.8457,
+      "lon": 10.7823
     },
     {
       "name": "Rennes, France",
